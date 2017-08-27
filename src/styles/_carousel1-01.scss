@@ -1,0 +1,124 @@
+// 
+// ==================================================/
+body {
+  @extend %system_normal--300;
+}
+
+.item-id {
+  background-color: #ccc;
+}
+
+// carousel1-01
+// ==================================================/
+.carousel1-01 {
+  // background-color: #ccc;
+  .carousel1-01_content {
+    background-color: #666;
+  }
+}
+
+// carousel1-02
+// ==================================================/
+.carousel1_02_pagebuttons {
+  @extend %display--inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 4px;
+  background-color: #ccc;
+}
+
+.carousel1_02_pagebuttons--active {
+  background-color: #000;
+}
+
+// carousel1-03
+// ==================================================/
+.carousel1_03_pagebuttons {
+  @extend %display--inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 4px;
+  background-color: #ccc;
+}
+
+.carousel1_03_pagebuttons--active {
+  background-color: #000;
+}
+
+.carousel1-03_content {
+  height: 60px;
+}
+
+.carousel1-03_description {
+  @extend %display--block;
+  background-color: #ccc;
+}
+
+// carousel1-04
+// ==================================================/
+.carousel1_04_pagebuttons {
+  @extend %display--inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 4px;
+  background-color: #ccc;
+}
+
+.carousel1_04_items {
+  height: 0;
+  opacity: 0;
+  transition: visibility 4s, opacity 0.5s ease-in;
+}
+
+.carousel1_04_items--active {
+  height: auto;
+  visibility: visible;
+  opacity: 1;
+}
+
+.carousel1_04_pagebuttons--active {
+  background-color: #000;
+}
+
+.carousel1-04_content {
+  height: 60px;
+}
+
+.carousel1-04_description {
+  @extend %display--block;
+  background-color: #ccc;
+}
+
+// carousel1-05
+// ==================================================/
+.carousel1-05_content {
+  height: 60px;
+}
+
+.carousel1_05_items {
+  height: 0;
+  opacity: 0;
+  transition: visibility 4s, opacity 0.5s ease-in;
+}
+
+.carousel1_05_items--active {
+  height: auto;
+  visibility: visible;
+  opacity: 1;
+}
+
+.carousel1-05_description {
+  @extend %display--block;
+  background-color: #ccc;
+}
+
+.carousel1-05_pagebuttons--active {
+  background-color: #000 !important;
+  color: #fff;
+}
+
+.carousel1-05_pagebuttons {
+  background-color: #ccc;
+  margin-right: 4px;
+}
+
