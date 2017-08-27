@@ -129,7 +129,6 @@ import Paginate from "./vendor/Paginate.js";
 //   };
 // })();
 
-// // todo: pass the selector
 // carousel1_05.init();
 
 // temp item data
@@ -285,7 +284,7 @@ class Carousel1_05 {
   }
 }
 
-let zz = new Carousel1_05({
+let c5 = new Carousel1_05({
   dataSrc: items,
   mainItemHolder: "carousel1-05_content",
   navPrevious: "carousel1_05_previous",
@@ -297,4 +296,43 @@ let zz = new Carousel1_05({
   item_inActiveClass: "carousel1_05_items",
 });
 
-zz.init();
+c5.init();
+
+// let c6 = new Carousel1_05({
+//   dataSrc: items,
+//   mainItemHolder: "carousel1-06_content",
+//   navPrevious: "carousel1_06_previous",
+//   navNext: "carousel1_06_next",
+//   paginator: "carousel1-06_pagination",
+//   pageBtn_activeClass: " carousel1-06_pagebuttons--active",
+//   pageBtn_inActiveClass: "carousel1-06_pagebuttons",
+//   item_activeClass: " carousel1_06_items--active",
+//   item_inActiveClass: "carousel1_06_items",
+// });
+
+// c6.init = function() {
+//   console.log(this.pageBtn_activeClass); // carousel1-06_pagebuttons--active
+// };
+
+// c6.init();
+
+class Carousel6 extends Carousel1_05 {
+  extraFn() {
+    // console.log(this.pageBtn_activeClass); // carousel1-06_pagebuttons--active
+    this.init(); // ok
+  }
+}
+
+let c6 = new Carousel6({
+  dataSrc: items,
+  mainItemHolder: "carousel1-06_content",
+  navPrevious: "carousel1_06_previous",
+  navNext: "carousel1_06_next",
+  paginator: "carousel1-06_pagination",
+  pageBtn_activeClass: " carousel1-06_pagebuttons--active",
+  pageBtn_inActiveClass: "carousel1-06_pagebuttons",
+  item_activeClass: " carousel1_06_items--active",
+  item_inActiveClass: "carousel1_06_items",
+});
+
+c6.extraFn();

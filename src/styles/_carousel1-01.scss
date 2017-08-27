@@ -122,3 +122,36 @@ body {
   margin-right: 4px;
 }
 
+// carousel1-06
+// ==================================================/
+.carousel1-06_content {
+  height: 60px;
+}
+
+.carousel1_06_items {
+  height: 0;
+  opacity: 0;
+  transition: visibility 4s, opacity 0.5s ease-in;
+}
+
+.carousel1_06_items--active {
+  height: auto;
+  visibility: visible;
+  opacity: 1;
+}
+
+.carousel1-06_description {
+  @extend %display--block;
+  background-color: #ccc;
+}
+
+.carousel1-06_pagebuttons--active {
+  background-color: #000 !important;
+  color: #fff;
+}
+
+.carousel1-06_pagebuttons {
+  background-color: #ccc;
+  margin-right: 4px;
+}
+
