@@ -10,7 +10,9 @@ body {
 
 // carousel1-01
 // ==================================================/
-$carousel1-01_height: 100px;
+@mixin carousel1-01() {
+  height: 100px; 
+}
 
 @mixin carousel1-01_pagebuttons() {
   background-color: #ccc;
@@ -26,7 +28,7 @@ $carousel1-01_height: 100px;
 }
 
 .carousel1-01 {
-  height: $carousel1-01_height;
+  @include carousel1-01();
 }
 
 .carousel1-01_content {
@@ -52,7 +54,9 @@ $carousel1-01_height: 100px;
 
 // carousel1-02
 // ==================================================/
-$carousel1-02_height: 100px;
+@mixin carousel1-02() {
+  height: 100px; 
+}
 
 @mixin carousel1-02_pagination() {
   // background-color: #000;
@@ -70,7 +74,7 @@ $carousel1-02_height: 100px;
 }
 
 .carousel1-02 {
-  height: $carousel1-02_height;
+  @include carousel1-02();
 }
 
 .carousel1-02_pagination {
@@ -96,7 +100,9 @@ $carousel1-02_height: 100px;
 
 // carousel1-03
 // ==================================================/
-$carousel1-03_height: 100px;
+@mixin carousel1-03() {
+  height: 100px; 
+}
 
 @mixin carousel1_03_pagebuttons() {
   $size: 12px;
@@ -114,7 +120,7 @@ $carousel1-03_height: 100px;
 }
 
 .carousel1-03 {
-  height: $carousel1-03_height;
+  @include carousel1-03();
 }
 
 .carousel1-03_pagination {
@@ -148,7 +154,9 @@ $carousel1-03_height: 100px;
 
 // carousel1-04
 // ==================================================/
-$carousel1-04_height: 100px;
+@mixin carousel1-04() {
+  height: 100px; 
+}
 
 @mixin carousel1_04_pagebuttons() {
   $size: 12px;
@@ -169,7 +177,7 @@ $carousel1-04_height: 100px;
 
 .carousel1-04 {
   @extend %pos--relative;
-  height: $carousel1-04_height;
+  @include carousel1-04();
   
   &:hover .carousel1-04_prevnext {
     visibility: visible;
@@ -248,7 +256,9 @@ $carousel1-04_height: 100px;
 
 // carousel1-05
 // ==================================================/
-$carousel1-05_height: 100px;
+@mixin carousel1-05() {
+  height: 100px;
+}
 
 @mixin carousel1-05_content() {
   // background-color: #ccc;
@@ -271,7 +281,7 @@ $carousel1-05_height: 100px;
 }
 
 .carousel1-05 {
-  height: $carousel1-05_height;
+  @include carousel1-05();
 }
 
 .carousel1-05_content {

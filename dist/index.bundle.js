@@ -1056,7 +1056,7 @@ var c6 = new Carousel6({
   item_inActiveClass: "carousel1_06_items"
 });
 
-c6.extraFn();
+// c6.extraFn();
 
 /***/ }),
 /* 8 */
