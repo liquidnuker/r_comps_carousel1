@@ -22,32 +22,32 @@ $carousel1-01_height: 100px;
 }
 
 @mixin carousel1-01_content() {
-  background-color: #666;
+  background-color: #ccc;
 }
 
 .carousel1-01 {
   height: $carousel1-01_height;
-  
-  .carousel1-01_content {
-    @include carousel1_01_content();
-  }
+}
 
-  .carousel1-01_pagination {
-    @extend %text--center;
-  }
+.carousel1-01_content {
+  @include carousel1_01_content();
+}
 
-  .carousel1-01_pagebuttons {
-    @include carousel1-01_pagebuttons();
-    @extend %display--inline-block;
-    @extend %padd--4;
-    margin-right: 4px;
-    cursor: pointer;
-  }
+.carousel1-01_pagination {
+  @extend %text--center;
+}
 
-  .carousel1-01_prevnext {
-    @extend %text--center; 
-    @include carousel1-01_prevnext();
-  }
+.carousel1-01_pagebuttons {
+  @extend %display--inline-block;
+  @extend %padd--4;
+  @include carousel1-01_pagebuttons();
+  margin-right: 4px;
+  cursor: pointer;
+}
+
+.carousel1-01_prevnext {
+  @extend %text--center; 
+  @include carousel1-01_prevnext();
 }
 
 // carousel1-02
@@ -71,27 +71,27 @@ $carousel1-02_height: 100px;
 
 .carousel1-02 {
   height: $carousel1-02_height;
+}
 
-  .carousel1-02_pagination {
-    @include carousel1-02_pagination();
-    @extend %text--center;
-  }
+.carousel1-02_pagination {
+  @include carousel1-02_pagination();
+  @extend %text--center;
+}
 
-  .carousel1_02_pagebuttons {
-    @extend %display--inline-block; 
-    @include carousel1_02_pagebuttons();   
-    border-radius: 50%;
-    margin-right: 4px;   
-    cursor: pointer; 
-  }
+.carousel1_02_pagebuttons {
+  @extend %display--inline-block; 
+  @include carousel1_02_pagebuttons();   
+  border-radius: 50%;
+  margin-right: 4px;   
+  cursor: pointer; 
+}
 
-  .carousel1_02_pagebuttons--active {
-    @include carousel1_02_pagebuttons--active();
-  }
+.carousel1_02_pagebuttons--active {
+  @include carousel1_02_pagebuttons--active();
+}
 
-  .carousel1-02_prevnext {
-    @extend %text--center;
-  }
+.carousel1-02_prevnext {
+  @extend %text--center;
 }
 
 // carousel1-03
@@ -115,36 +115,36 @@ $carousel1-03_height: 100px;
 
 .carousel1-03 {
   height: $carousel1-03_height;
-
-  .carousel1-03_pagination {
-    @extend %text--center;
-  }
-
-  .carousel1_03_pagebuttons {
-    @extend %display--inline-block;
-    @include carousel1_03_pagebuttons();
-    border-radius: 50%;
-    margin-right: 4px;
-    cursor: pointer;
-  }
-
-  .carousel1_03_pagebuttons--active {
-    @include carousel1_03_pagebuttons--active();
-  }
-
-  .carousel1-03_content {
-    
-  }
-
-  .carousel1-03_description {
-    @extend %display--block;
-    @include carousel1-03_description();
-  }
-
-  .carousel1-03_prevnext {
-    @extend %text--center;
-  }  
 }
+
+.carousel1-03_pagination {
+  @extend %text--center;
+}
+
+.carousel1_03_pagebuttons {
+  @extend %display--inline-block;
+  @include carousel1_03_pagebuttons();
+  border-radius: 50%;
+  margin-right: 4px;
+  cursor: pointer;
+}
+
+.carousel1_03_pagebuttons--active {
+  @include carousel1_03_pagebuttons--active();
+}
+
+.carousel1-03_content {
+
+}
+
+.carousel1-03_description {
+  @extend %display--block;
+  @include carousel1-03_description();
+}
+
+.carousel1-03_prevnext {
+  @extend %text--center;
+}  
 
 // carousel1-04
 // ==================================================/
@@ -168,9 +168,9 @@ $carousel1-04_height: 100px;
 }
 
 .carousel1-04 {
+  @extend %pos--relative;
   height: $carousel1-04_height;
-  position: relative;
-
+  
   &:hover .carousel1-04_prevnext {
     visibility: visible;
   }
@@ -248,8 +248,34 @@ $carousel1-04_height: 100px;
 
 // carousel1-05
 // ==================================================/
+$carousel1-05_height: 100px;
+
+@mixin carousel1-05_content() {
+  // background-color: #ccc;
+}
+
+@mixin carousel1-05_pagebuttons() {
+  @extend %padd--4;
+  background-color: #ccc;
+}
+
+@mixin carousel1-05_pagebuttons--active() {
+  background-color: #000 !important;
+  color: #fff;
+}
+
+@mixin carousel1-05_prevnextbuttons() {
+  @extend %padd--4;
+  background-color: #000;
+  color: #fff;
+}
+
+.carousel1-05 {
+  height: $carousel1-05_height;
+}
+
 .carousel1-05_content {
-  height: 60px;
+  @include carousel1-05_content();
 }
 
 .carousel1_05_items {
@@ -264,51 +290,27 @@ $carousel1-04_height: 100px;
   opacity: 1;
 }
 
-.carousel1-05_description {
-  @extend %display--block;
-  background-color: #ccc;
+.carousel1-05_prevnext {
+  @extend %text--center;
 }
 
-.carousel1-05_pagebuttons--active {
-  background-color: #000 !important;
-  color: #fff;
+.carousel1_05_previous,
+.carousel1_05_next {
+  @extend %display--inline-block;
+  @include carousel1-05_prevnextbuttons();
+}
+
+.carousel1-05_pagination {
+  @extend %display--inline-block;
+  @extend %text--center;
 }
 
 .carousel1-05_pagebuttons {
-  background-color: #ccc;
+  @extend %display--inline-block;
+  @include carousel1-05_pagebuttons();
   margin-right: 4px;
 }
 
-// carousel1-06
-// ==================================================/
-.carousel1-06_content {
-  height: 60px;
+.carousel1-05_pagebuttons--active {
+  @include carousel1-05_pagebuttons--active();
 }
-
-.carousel1_06_items {
-  height: 0;
-  opacity: 0;
-  transition: visibility 4s, opacity 0.5s ease-in;
-}
-
-.carousel1_06_items--active {
-  height: auto;
-  visibility: visible;
-  opacity: 1;
-}
-
-.carousel1-06_description {
-  @extend %display--block;
-  background-color: #ccc;
-}
-
-.carousel1-06_pagebuttons--active {
-  background-color: #000 !important;
-  color: #fff;
-}
-
-.carousel1-06_pagebuttons {
-  background-color: #ccc;
-  margin-right: 4px;
-}
-

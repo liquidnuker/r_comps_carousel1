@@ -10,15 +10,16 @@
 .carousel1-04_pagination {
   position: absolute; }
 
-.carousel1_04_previous,
+.carousel1-04, .carousel1_04_previous,
 .carousel1_04_next {
   position: relative; }
 
-.carousel1-03 .carousel1-03_description, .carousel1-05_description, .carousel1-06_description {
+.carousel1-03_description {
   display: block; }
 
-.carousel1-01 .carousel1-01_pagebuttons, .carousel1-02 .carousel1_02_pagebuttons, .carousel1-03 .carousel1_03_pagebuttons, .carousel1_04_pagebuttons, .carousel1_04_previous,
-.carousel1_04_next {
+.carousel1-01_pagebuttons, .carousel1_02_pagebuttons, .carousel1_03_pagebuttons, .carousel1_04_pagebuttons, .carousel1_04_previous,
+.carousel1_04_next, .carousel1_05_previous,
+.carousel1_05_next, .carousel1-05_pagination, .carousel1-05_pagebuttons {
   display: inline-block; }
 
 input, textarea, select, html, body, div, span, applet, object, iframe,
@@ -37,10 +38,11 @@ time, mark, audio, video {
   margin: 0;
   padding: 0; }
 
-.carousel1-01 .carousel1-01_pagebuttons {
+.carousel1-01_pagebuttons, .carousel1_05_previous,
+.carousel1_05_next, .carousel1-05_pagebuttons {
   padding: 4px; }
 
-.carousel1-01 .carousel1-01_pagination, .carousel1-01 .carousel1-01_prevnext, .carousel1-02 .carousel1-02_pagination, .carousel1-02 .carousel1-02_prevnext, .carousel1-03 .carousel1-03_pagination, .carousel1-03 .carousel1-03_prevnext, .carousel1-04_pagination {
+.carousel1-01_pagination, .carousel1-01_prevnext, .carousel1-02_pagination, .carousel1-02_prevnext, .carousel1-03_pagination, .carousel1-03_prevnext, .carousel1-04_pagination, .carousel1-05_prevnext, .carousel1-05_pagination {
   text-align: center; }
 
 *,
@@ -798,43 +800,49 @@ body {
 
 .carousel1-01 {
   height: 100px; }
-  .carousel1-01 .carousel1-01_content {
-    background-color: #666; }
-  .carousel1-01 .carousel1-01_pagebuttons {
-    background-color: #ccc;
-    color: #000;
-    margin-right: 4px;
-    cursor: pointer; }
+
+.carousel1-01_content {
+  background-color: #ccc; }
+
+.carousel1-01_pagebuttons {
+  background-color: #ccc;
+  color: #000;
+  margin-right: 4px;
+  cursor: pointer; }
 
 .carousel1-02 {
   height: 100px; }
-  .carousel1-02 .carousel1_02_pagebuttons {
-    width: 12px;
-    height: 12px;
-    background-color: #ccc;
-    border-radius: 50%;
-    margin-right: 4px;
-    cursor: pointer; }
-  .carousel1-02 .carousel1_02_pagebuttons--active {
-    background-color: #000; }
+
+.carousel1_02_pagebuttons {
+  width: 12px;
+  height: 12px;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin-right: 4px;
+  cursor: pointer; }
+
+.carousel1_02_pagebuttons--active {
+  background-color: #000; }
 
 .carousel1-03 {
   height: 100px; }
-  .carousel1-03 .carousel1_03_pagebuttons {
-    width: 12px;
-    height: 12px;
-    background-color: #ccc;
-    border-radius: 50%;
-    margin-right: 4px;
-    cursor: pointer; }
-  .carousel1-03 .carousel1_03_pagebuttons--active {
-    background-color: #000; }
-  .carousel1-03 .carousel1-03_description {
-    background-color: #ccc; }
+
+.carousel1_03_pagebuttons {
+  width: 12px;
+  height: 12px;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin-right: 4px;
+  cursor: pointer; }
+
+.carousel1_03_pagebuttons--active {
+  background-color: #000; }
+
+.carousel1-03_description {
+  background-color: #ccc; }
 
 .carousel1-04 {
-  height: 100px;
-  position: relative; }
+  height: 100px; }
   .carousel1-04:hover .carousel1-04_prevnext {
     visibility: visible; }
 
@@ -897,8 +905,8 @@ body {
 .carousel1_04_next {
   float: right; }
 
-.carousel1-05_content {
-  height: 60px; }
+.carousel1-05 {
+  height: 100px; }
 
 .carousel1_05_items {
   height: 0;
@@ -910,40 +918,18 @@ body {
   visibility: visible;
   opacity: 1; }
 
-.carousel1-05_description {
-  background-color: #ccc; }
-
-.carousel1-05_pagebuttons--active {
-  background-color: #000 !important;
+.carousel1_05_previous,
+.carousel1_05_next {
+  background-color: #000;
   color: #fff; }
 
 .carousel1-05_pagebuttons {
   background-color: #ccc;
   margin-right: 4px; }
 
-.carousel1-06_content {
-  height: 60px; }
-
-.carousel1_06_items {
-  height: 0;
-  opacity: 0;
-  transition: visibility 4s, opacity 0.5s ease-in; }
-
-.carousel1_06_items--active {
-  height: auto;
-  visibility: visible;
-  opacity: 1; }
-
-.carousel1-06_description {
-  background-color: #ccc; }
-
-.carousel1-06_pagebuttons--active {
+.carousel1-05_pagebuttons--active {
   background-color: #000 !important;
   color: #fff; }
-
-.carousel1-06_pagebuttons {
-  background-color: #ccc;
-  margin-right: 4px; }
 
 body:before {
   background-color: #FCF8E3;
