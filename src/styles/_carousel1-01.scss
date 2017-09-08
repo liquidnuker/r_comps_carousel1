@@ -56,6 +56,17 @@ body {
 
 // carousel1-04
 // ==================================================/
+$carousel1-04_height: 100px;
+
+.carousel1-04 {
+  height: $carousel1-04_height;
+  position: relative;
+
+  &:hover .carousel1-04_prevnext {
+    visibility: visible;
+  }
+}
+
 .carousel1_04_pagebuttons {
   @extend %display--inline-block;
   width: 15px;
@@ -81,12 +92,51 @@ body {
 }
 
 .carousel1-04_content {
-  height: 60px;
+  // height: 60px;
 }
 
 .carousel1-04_description {
-  @extend %display--block;
   background-color: #ccc;
+}
+
+// controls
+.carousel1-04_pagination {
+  @extend %pos--absolute;
+  @extend %text--center;
+  width: 100%;
+  bottom: 10%;  
+  z-index: 3;
+}
+
+.carousel1-04_prevnext {
+  @include center-both;
+  visibility: hidden;
+  // background-color: #ccc;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+}
+
+.carousel1_04_previous,
+.carousel1_04_next {
+  @extend %display--inline-block;
+  padding: 10px;
+  @extend %pos--relative;
+  height: 100%;
+  background-color: #000;
+  color: #fff;
+
+  p {
+    @include center-both;
+  }
+}
+
+.carousel1_04_previous {
+
+}
+
+.carousel1_04_next {
+  float: right;
 }
 
 // carousel1-05
