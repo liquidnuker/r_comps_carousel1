@@ -58,6 +58,23 @@ body {
 // ==================================================/
 $carousel1-04_height: 100px;
 
+@mixin carousel1_04_pagebuttons() {
+  $size: 12px;
+  width: $size;
+  height: $size;
+  background-color: #ccc;
+}
+
+@mixin carousel1_04_prevnextbuttons() {
+  padding: 10px;
+  background-color: #000;
+  color: #fff;
+}
+
+@mixin carousel1_04_pagebuttons--active() {
+  background-color: #000;
+}
+
 .carousel1-04 {
   height: $carousel1-04_height;
   position: relative;
@@ -69,10 +86,10 @@ $carousel1-04_height: 100px;
 
 .carousel1_04_pagebuttons {
   @extend %display--inline-block;
-  width: 15px;
-  height: 15px;
+  @include carousel1_04_pagebuttons();
+  border-radius: 50%;  
   margin-right: 4px;
-  background-color: #ccc;
+  cursor: pointer;
 }
 
 .carousel1_04_items {
@@ -88,7 +105,7 @@ $carousel1-04_height: 100px;
 }
 
 .carousel1_04_pagebuttons--active {
-  background-color: #000;
+  @include carousel1_04_pagebuttons--active();
 }
 
 .carousel1-04_content {
@@ -120,12 +137,10 @@ $carousel1-04_height: 100px;
 .carousel1_04_previous,
 .carousel1_04_next {
   @extend %display--inline-block;
-  padding: 10px;
   @extend %pos--relative;
+  @include carousel1_04_prevnextbuttons();  
   height: 100%;
-  background-color: #000;
-  color: #fff;
-
+  
   p {
     @include center-both;
   }
