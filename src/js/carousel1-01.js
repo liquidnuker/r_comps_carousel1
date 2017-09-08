@@ -38,7 +38,8 @@ const carousel1_01 = {
   },
   showPageButtons: function () {
     for (let i = 0; i < this.items.length; i++) {
-      const pageButtons = document.createElement("button");
+      const pageButtons = document.createElement("span");
+      pageButtons.className = "carousel1-01_pagebuttons";
       pageButtons.textContent = i;
       pageButtons.addEventListener("click", () => this.customPage(i));
       document.getElementById("carousel1-01_pagination").appendChild(pageButtons);

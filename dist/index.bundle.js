@@ -162,7 +162,8 @@ var carousel1_01 = {
     var _this = this;
 
     var _loop = function _loop(i) {
-      var pageButtons = document.createElement("button");
+      var pageButtons = document.createElement("span");
+      pageButtons.className = "carousel1-01_pagebuttons";
       pageButtons.textContent = i;
       pageButtons.addEventListener("click", function () {
         return _this.customPage(i);

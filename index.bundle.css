@@ -17,7 +17,7 @@
 .carousel1-03_description, .carousel1-05_description, .carousel1-06_description {
   display: block; }
 
-.carousel1_02_pagebuttons, .carousel1_03_pagebuttons, .carousel1_04_pagebuttons, .carousel1_04_previous,
+.carousel1-01 .carousel1-01_pagebuttons, .carousel1_02_pagebuttons, .carousel1_03_pagebuttons, .carousel1_04_pagebuttons, .carousel1_04_previous,
 .carousel1_04_next {
   display: inline-block; }
 
@@ -37,7 +37,10 @@ time, mark, audio, video {
   margin: 0;
   padding: 0; }
 
-.carousel1-04_pagination {
+.carousel1-01 .carousel1-01_pagebuttons {
+  padding: 4px; }
+
+.carousel1-01 .carousel1-01_pagination, .carousel1-01 .carousel1-01_prevnext, .carousel1-04_pagination {
   text-align: center; }
 
 *,
@@ -797,6 +800,11 @@ body {
   height: 100px; }
   .carousel1-01 .carousel1-01_content {
     background-color: #666; }
+  .carousel1-01 .carousel1-01_pagebuttons {
+    background-color: #ccc;
+    color: #000;
+    margin-right: 4px;
+    cursor: pointer; }
 
 .carousel1_02_pagebuttons {
   width: 15px;

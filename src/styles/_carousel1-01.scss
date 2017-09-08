@@ -12,10 +12,41 @@ body {
 // ==================================================/
 $carousel1-01_height: 100px;
 
+@mixin carousel1-01_pagebuttons() {
+  background-color: #ccc;
+  color: #000;
+}
+
+@mixin carousel1-01_prevnext() {
+  // background-color: #000;
+}
+
+@mixin carousel1-01_content() {
+  background-color: #666;
+}
+
 .carousel1-01 {
   height: $carousel1-01_height;
+  
   .carousel1-01_content {
-    background-color: #666;
+    @include carousel1_01_content();
+  }
+
+  .carousel1-01_pagination {
+    @extend %text--center;
+  }
+
+  .carousel1-01_pagebuttons {
+    @include carousel1-01_pagebuttons();
+    @extend %display--inline-block;
+    @extend %padd--4;
+    margin-right: 4px;
+    cursor: pointer;
+  }
+
+  .carousel1-01_prevnext {
+    @extend %text--center; 
+    @include carousel1-01_prevnext();
   }
 }
 
