@@ -14,10 +14,10 @@
 .carousel1_04_next {
   position: relative; }
 
-.carousel1-03_description, .carousel1-05_description, .carousel1-06_description {
+.carousel1-03 .carousel1-03_description, .carousel1-05_description, .carousel1-06_description {
   display: block; }
 
-.carousel1-01 .carousel1-01_pagebuttons, .carousel1_02_pagebuttons, .carousel1_03_pagebuttons, .carousel1_04_pagebuttons, .carousel1_04_previous,
+.carousel1-01 .carousel1-01_pagebuttons, .carousel1-02 .carousel1_02_pagebuttons, .carousel1-03 .carousel1_03_pagebuttons, .carousel1_04_pagebuttons, .carousel1_04_previous,
 .carousel1_04_next {
   display: inline-block; }
 
@@ -40,7 +40,7 @@ time, mark, audio, video {
 .carousel1-01 .carousel1-01_pagebuttons {
   padding: 4px; }
 
-.carousel1-01 .carousel1-01_pagination, .carousel1-01 .carousel1-01_prevnext, .carousel1-04_pagination {
+.carousel1-01 .carousel1-01_pagination, .carousel1-01 .carousel1-01_prevnext, .carousel1-02 .carousel1-02_pagination, .carousel1-02 .carousel1-02_prevnext, .carousel1-03 .carousel1-03_pagination, .carousel1-03 .carousel1-03_prevnext, .carousel1-04_pagination {
   text-align: center; }
 
 *,
@@ -806,29 +806,31 @@ body {
     margin-right: 4px;
     cursor: pointer; }
 
-.carousel1_02_pagebuttons {
-  width: 15px;
-  height: 15px;
-  margin-right: 4px;
-  background-color: #ccc; }
+.carousel1-02 {
+  height: 100px; }
+  .carousel1-02 .carousel1_02_pagebuttons {
+    width: 12px;
+    height: 12px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin-right: 4px;
+    cursor: pointer; }
+  .carousel1-02 .carousel1_02_pagebuttons--active {
+    background-color: #000; }
 
-.carousel1_02_pagebuttons--active {
-  background-color: #000; }
-
-.carousel1_03_pagebuttons {
-  width: 15px;
-  height: 15px;
-  margin-right: 4px;
-  background-color: #ccc; }
-
-.carousel1_03_pagebuttons--active {
-  background-color: #000; }
-
-.carousel1-03_content {
-  height: 60px; }
-
-.carousel1-03_description {
-  background-color: #ccc; }
+.carousel1-03 {
+  height: 100px; }
+  .carousel1-03 .carousel1_03_pagebuttons {
+    width: 12px;
+    height: 12px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin-right: 4px;
+    cursor: pointer; }
+  .carousel1-03 .carousel1_03_pagebuttons--active {
+    background-color: #000; }
+  .carousel1-03 .carousel1-03_description {
+    background-color: #ccc; }
 
 .carousel1-04 {
   height: 100px;

@@ -52,39 +52,98 @@ $carousel1-01_height: 100px;
 
 // carousel1-02
 // ==================================================/
-.carousel1_02_pagebuttons {
-  @extend %display--inline-block;
-  width: 15px;
-  height: 15px;
-  margin-right: 4px;
+$carousel1-02_height: 100px;
+
+@mixin carousel1-02_pagination() {
+  // background-color: #000;
+}
+
+@mixin carousel1_02_pagebuttons() {
+  $size: 12px;
+  width: $size;
+  height: $size;
   background-color: #ccc;
 }
 
-.carousel1_02_pagebuttons--active {
-  background-color: #000;
+@mixin carousel1_02_pagebuttons--active() {
+  background-color: #000;  
+}
+
+.carousel1-02 {
+  height: $carousel1-02_height;
+
+  .carousel1-02_pagination {
+    @include carousel1-02_pagination();
+    @extend %text--center;
+  }
+
+  .carousel1_02_pagebuttons {
+    @extend %display--inline-block; 
+    @include carousel1_02_pagebuttons();   
+    border-radius: 50%;
+    margin-right: 4px;   
+    cursor: pointer; 
+  }
+
+  .carousel1_02_pagebuttons--active {
+    @include carousel1_02_pagebuttons--active();
+  }
+
+  .carousel1-02_prevnext {
+    @extend %text--center;
+  }
 }
 
 // carousel1-03
 // ==================================================/
-.carousel1_03_pagebuttons {
-  @extend %display--inline-block;
-  width: 15px;
-  height: 15px;
-  margin-right: 4px;
+$carousel1-03_height: 100px;
+
+@mixin carousel1_03_pagebuttons() {
+  $size: 12px;
+  width: $size;
+  height: $size;
   background-color: #ccc;
 }
 
-.carousel1_03_pagebuttons--active {
+@mixin carousel1_03_pagebuttons--active() {
   background-color: #000;
 }
 
-.carousel1-03_content {
-  height: 60px;
+@mixin carousel1-03_description() {
+  background-color: #ccc;
 }
 
-.carousel1-03_description {
-  @extend %display--block;
-  background-color: #ccc;
+.carousel1-03 {
+  height: $carousel1-03_height;
+
+  .carousel1-03_pagination {
+    @extend %text--center;
+  }
+
+  .carousel1_03_pagebuttons {
+    @extend %display--inline-block;
+    @include carousel1_03_pagebuttons();
+    border-radius: 50%;
+    margin-right: 4px;
+    cursor: pointer;
+  }
+
+  .carousel1_03_pagebuttons--active {
+    @include carousel1_03_pagebuttons--active();
+  }
+
+  .carousel1-03_content {
+    
+  }
+
+  .carousel1-03_description {
+    @extend %display--block;
+    @include carousel1-03_description();
+  }
+
+  .carousel1-03_prevnext {
+    @extend %text--center;
+  }  
 }
 
 // carousel1-04
