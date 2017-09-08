@@ -10,8 +10,10 @@ body {
 
 // carousel1-01
 // ==================================================/
+$carousel1-01_height: 100px;
+
 .carousel1-01 {
-  // background-color: #ccc;
+  height: $carousel1-01_height;
   .carousel1-01_content {
     background-color: #666;
   }

@@ -793,8 +793,10 @@ body {
 .item-id {
   background-color: #ccc; }
 
-.carousel1-01 .carousel1-01_content {
-  background-color: #666; }
+.carousel1-01 {
+  height: 100px; }
+  .carousel1-01 .carousel1-01_content {
+    background-color: #666; }
 
 .carousel1_02_pagebuttons {
   width: 15px;
