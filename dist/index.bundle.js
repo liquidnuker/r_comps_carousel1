@@ -143,9 +143,6 @@ var Carousel1_01 = function () {
     this.pageBtnHolder = opts.pageBtnHolder;
   }
 
-  // prototypes
-
-
   _createClass(Carousel1_01, [{
     key: "init",
     value: function init() {
@@ -195,7 +192,6 @@ var Carousel1_01 = function () {
         cIndex = items.length; // go to last
       }
       cIndex = cIndex - 1;
-      // return items[cIndex];
 
       this.cIndex = cIndex;
       this.refresh();
@@ -208,7 +204,6 @@ var Carousel1_01 = function () {
 
       cIndex = cIndex + 1;
       cIndex = cIndex % items.length; // go to first
-      // return items[cIndex];
 
       this.cIndex = cIndex; // main cIndex
       this.refresh();
@@ -247,102 +242,152 @@ C1_01.init();
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__store_js__ = __webpack_require__(0);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 
-var carousel1_02 = function () {
-  var items = __WEBPACK_IMPORTED_MODULE_0__store_js__["a" /* store */].items;
-  var cIndex = 0;
 
-  // for pageButtons
-  var pageButtons = [];
-  var activePageButton = 0;
+// Carousel1-02
+// ======================================================/
 
-  function init() {
-    refresh();
-    addEvents();
-    showPageButtons();
+var Carousel1_02 = function () {
+  function Carousel1_02(opts) {
+    _classCallCheck(this, Carousel1_02);
+
+    this.items = opts.dataSrc;
+    this.cIndex = opts.startIndex;
+
+    this.carouselContent = opts.carouselContent;
+    this.btn_prevClass = opts.btn_prevClass;
+    this.btn_nextClass = opts.btn_nextClass;
+    this.pageBtnClass = opts.pageBtnClass;
+    this.pageBtnActiveClass = opts.pageBtnActiveClass;
+    this.pageBtnItemClass = opts.pageBtnItemClass;
+    this.pageBtnHolder = opts.pageBtnHolder;
+
+    this.pageButtons = [];
+    this.activePageButton = 0;
   }
 
-  function addEvents() {
-    document.getElementById("carousel1_02_previous").addEventListener("click", function () {
-      prevItem();
-    });
+  _createClass(Carousel1_02, [{
+    key: "init",
+    value: function init() {
+      this.refresh();
+      this.addEvents();
+      this.showPagebuttons();
+    }
+  }, {
+    key: "addEvents",
+    value: function addEvents() {
+      var _this = this;
 
-    document.getElementById("carousel1_02_next").addEventListener("click", function () {
-      nextItem();
-    });
-  }
-
-  function showPageButtons() {
-    var _loop = function _loop(i) {
-      var pageButtonItems = document.createElement("div");
-      pageButtonItems.className = "carousel1_02_pagebuttons";
-      // pageButtonItems.textContent = i;
-      pageButtonItems.addEventListener("click", function () {
-        return customPage(i);
+      document.getElementById(this.btn_prevClass).addEventListener("click", function () {
+        _this.prevItem();
       });
-      document.getElementById("carousel1-02_pagination").appendChild(pageButtonItems);
-      pageButtons.push(pageButtonItems);
-    };
 
-    for (var i = 0; i < items.length; i++) {
-      _loop(i);
+      document.getElementById(this.btn_nextClass).addEventListener("click", function () {
+        _this.nextItem();
+      });
     }
+  }, {
+    key: "prevItem",
+    value: function prevItem() {
+      var cIndex = this.cIndex;
+      var items = this.items;
 
-    // default
-    setActivePageButton(0);
-  }
+      if (cIndex === 0) {
+        cIndex = items.length; // go to last
+      }
+      cIndex = cIndex - 1;
 
-  function setActivePageButton(index) {
-    var activeItem = index;
-
-    pageButtons[activeItem].className += " carousel1_02_pagebuttons--active";
-    pageButtons[activeItem].setAttribute("aria-selected", true);
-
-    if (activePageButton !== activeItem) {
-      pageButtons[activePageButton].className = "carousel1_02_pagebuttons";
-      pageButtons[activePageButton].setAttribute("aria-selected", false);
-
-      // set current activePageButton
-      activePageButton = activeItem;
+      this.cIndex = cIndex;
+      this.setActivePageButton(this.cIndex);
     }
-    refresh();
-  }
+  }, {
+    key: "nextItem",
+    value: function nextItem() {
+      var cIndex = this.cIndex;
+      var items = this.items;
 
-  function customPage(num) {
-    cIndex = num;
-    setActivePageButton(num);
-  }
+      cIndex = cIndex + 1;
+      cIndex = cIndex % items.length; // go to first
 
-  function prevItem() {
-    if (cIndex === 0) {
-      cIndex = items.length; // go to last
+      this.cIndex = cIndex;
+      this.setActivePageButton(this.cIndex);
     }
-    cIndex = cIndex - 1;
+  }, {
+    key: "customPage",
+    value: function customPage(num) {
+      this.cIndex = num;
+      this.setActivePageButton(num);
+    }
+  }, {
+    key: "showPagebuttons",
+    value: function showPagebuttons() {
+      var _this2 = this;
 
-    setActivePageButton(cIndex);
-    // return items[cIndex];
-  }
+      var items = this.items;
+      var pageButtons = this.pageButtons;
 
-  function nextItem() {
-    cIndex = cIndex + 1;
-    cIndex = cIndex % items.length; // go to first
+      var _loop = function _loop(i) {
+        var pageButtonItems = document.createElement("div");
+        pageButtonItems.className = _this2.pageBtnItemClass;
+        pageButtonItems.addEventListener("click", function () {
+          return _this2.customPage(i);
+        });
+        document.getElementById(_this2.pageBtnHolder).appendChild(pageButtonItems);
+        pageButtons.push(pageButtonItems);
+      };
 
-    setActivePageButton(cIndex);
-    // return items[cIndex];
-  }
+      for (var i = 0; i < items.length; i++) {
+        _loop(i);
+      }
 
-  function refresh() {
-    document.getElementById("carousel1-02_content").innerHTML = items[cIndex].itemName;
-  }
+      // default
+      this.setActivePageButton(this.cIndex);
+    }
+  }, {
+    key: "setActivePageButton",
+    value: function setActivePageButton(index) {
+      var activeItem = index;
+      var pageButtons = this.pageButtons;
+      var activePageButton = this.activePageButton;
 
-  return {
-    init: init
-  };
+      pageButtons[activeItem].className += this.pageBtnActiveClass;
+      pageButtons[activeItem].setAttribute("aria-selected", true);
+
+      if (activePageButton !== activeItem) {
+        pageButtons[activePageButton].className = this.pageBtnClass;
+        pageButtons[activePageButton].setAttribute("aria-selected", false);
+
+        // set current activePageButton
+        this.activePageButton = activeItem;
+      }
+      this.refresh();
+    }
+  }, {
+    key: "refresh",
+    value: function refresh() {
+      document.getElementById(this.carouselContent).innerHTML = this.items[this.cIndex].itemName;
+    }
+  }]);
+
+  return Carousel1_02;
 }();
 
-// todo: pass the selector
-carousel1_02.init();
+var C1_02 = new Carousel1_02({
+  dataSrc: __WEBPACK_IMPORTED_MODULE_0__store_js__["a" /* store */].items,
+  startIndex: 0,
+  carouselContent: "carousel1-02_content",
+  btn_prevClass: "carousel1_02_previous",
+  btn_nextClass: "carousel1_02_next",
+  pageBtnClass: "carousel1_02_pagebuttons",
+  pageBtnActiveClass: " carousel1_02_pagebuttons--active",
+  pageBtnItemClass: "carousel1_02_pagebuttons",
+  pageBtnHolder: "carousel1-02_pagination"
+});
+C1_02.init();
 
 /***/ }),
 /* 5 */
@@ -350,108 +395,154 @@ carousel1_02.init();
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__store_js__ = __webpack_require__(0);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 
-var carousel1_03 = function () {
-  var items = __WEBPACK_IMPORTED_MODULE_0__store_js__["a" /* store */].items;
-  var cIndex = 0;
 
-  var itemContainer = [];
+var Carousel1_03 = function () {
+  function Carousel1_03(opts) {
+    _classCallCheck(this, Carousel1_03);
 
-  // for pageButtons
-  var pageButtons = [];
-  var activePageButton = 0;
+    this.items = opts.dataSrc;
+    this.cIndex = opts.startIndex;
+    this.itemContainer = [];
 
-  function init() {
-    refresh();
-    addEvents();
-    showItems();
+    // for pageButtons
+    this.pageButtons = [];
+    this.activePageButton = 0;
+
+    this.carouselContent = opts.carouselContent;
+    this.prevBtn = opts.prevBtn;
+    this.nextBtn = opts.nextBtn;
+    this.pageBtnClass = opts.pageBtnClass;
+    this.pageBtnActiveClass = opts.pageBtnActiveClass;
+    this.pageBtnItemClass = opts.pageBtnItemClass;
+    this.pageBtnHolder = opts.pageBtnHolder;
   }
 
-  function addEvents() {
-    document.getElementById("carousel1_03_previous").addEventListener("click", function () {
-      prevItem();
-    });
+  _createClass(Carousel1_03, [{
+    key: "init",
+    value: function init() {
+      this.addEvents();
+      this.showItems();
+    }
+  }, {
+    key: "addEvents",
+    value: function addEvents() {
+      var _this = this;
 
-    document.getElementById("carousel1_03_next").addEventListener("click", function () {
-      nextItem();
-    });
-  }
-
-  function showItems() {
-    var _loop = function _loop(i) {
-      var cItems = "<div>\n        " + items[i].itemName + " <br>\n        <span class=\"carousel1-03_description\">" + items[i].description + "</span>\n        </div>";
-
-      itemContainer.push(cItems);
-
-      // page buttons
-      var pageButtonItems = document.createElement("div");
-      pageButtonItems.className = "carousel1_03_pagebuttons";
-      pageButtonItems.addEventListener("click", function () {
-        return customPage(i);
+      document.getElementById(this.prevBtn).addEventListener("click", function () {
+        _this.prevItem();
       });
-      document.getElementById("carousel1-03_pagination").appendChild(pageButtonItems);
-      pageButtons.push(pageButtonItems);
-    };
 
-    for (var i = 0; i < items.length; i++) {
-      _loop(i);
+      document.getElementById(this.nextBtn).addEventListener("click", function () {
+        _this.nextItem();
+      });
     }
+  }, {
+    key: "prevItem",
+    value: function prevItem() {
+      var cIndex = this.cIndex;
+      var items = this.items;
 
-    // default
-    setActivePageButton(0);
-  }
-
-  function setActivePageButton(index) {
-    var activeItem = index;
-
-    pageButtons[activeItem].className += " carousel1_03_pagebuttons--active";
-    pageButtons[activeItem].setAttribute("aria-selected", true);
-
-    if (activePageButton !== activeItem) {
-      pageButtons[activePageButton].className = "carousel1_03_pagebuttons";
-      pageButtons[activePageButton].setAttribute("aria-selected", false);
-
-      // set current activePageButton
-      activePageButton = activeItem;
+      if (cIndex === 0) {
+        cIndex = items.length; // go to last
+      }
+      this.cIndex = cIndex - 1;
+      this.setActivePageButton(this.cIndex);
     }
-    refresh();
-  }
+  }, {
+    key: "nextItem",
+    value: function nextItem() {
+      var cIndex = this.cIndex;
+      var items = this.items;
 
-  function customPage(num) {
-    cIndex = num;
-    setActivePageButton(num);
-  }
+      cIndex = cIndex + 1;
+      cIndex = cIndex % items.length; // go to first
 
-  function prevItem() {
-    if (cIndex === 0) {
-      cIndex = items.length; // go to last
+      this.cIndex = cIndex;
+      this.setActivePageButton(this.cIndex);
     }
-    cIndex = cIndex - 1;
+  }, {
+    key: "customPage",
+    value: function customPage(num) {
+      this.cIndex = num;
+      this.setActivePageButton(num);
+    }
+  }, {
+    key: "showItems",
+    value: function showItems() {
+      var _this2 = this;
 
-    setActivePageButton(cIndex);
-    // return items[cIndex];
-  }
+      var items = this.items;
+      var itemContainer = this.itemContainer;
+      var pageButtons = this.pageButtons;
 
-  function nextItem() {
-    cIndex = cIndex + 1;
-    cIndex = cIndex % items.length; // go to first
+      var _loop = function _loop(i) {
+        var cItems = "<div>\n        " + items[i].itemName + " <br>\n        <span class=\"carousel1-03_description\">" + items[i].description + "</span>\n        </div>";
 
-    setActivePageButton(cIndex);
-    // return items[cIndex];
-  }
+        itemContainer.push(cItems);
 
-  function refresh() {
-    document.getElementById("carousel1-03_content").innerHTML = itemContainer[cIndex];
-  }
+        // page buttons
+        var pageButtonItems = document.createElement("div");
+        pageButtonItems.className = _this2.pageBtnItemClass;
+        pageButtonItems.addEventListener("click", function () {
+          return _this2.customPage(i);
+        });
+        document.getElementById(_this2.pageBtnHolder).appendChild(pageButtonItems);
+        pageButtons.push(pageButtonItems);
+      };
 
-  return {
-    init: init
-  };
+      for (var i = 0; i < items.length; i++) {
+        _loop(i);
+      }
+
+      // default
+      this.setActivePageButton(this.cIndex);
+    }
+  }, {
+    key: "setActivePageButton",
+    value: function setActivePageButton(index) {
+      var activeItem = index;
+      var pageButtons = this.pageButtons;
+      var activePageButton = this.activePageButton;
+
+      pageButtons[activeItem].className += this.pageBtnActiveClass;
+      pageButtons[activeItem].setAttribute("aria-selected", true);
+
+      if (activePageButton !== activeItem) {
+        pageButtons[activePageButton].className = this.pageBtnClass;
+        pageButtons[activePageButton].setAttribute("aria-selected", false);
+
+        // set current activePageButton
+        this.activePageButton = activeItem;
+      }
+      this.refresh();
+    }
+  }, {
+    key: "refresh",
+    value: function refresh() {
+      document.getElementById(this.carouselContent).innerHTML = this.itemContainer[this.cIndex];
+    }
+  }]);
+
+  return Carousel1_03;
 }();
 
-// todo: pass the selector
-carousel1_03.init();
+var C1_03 = new Carousel1_03({
+  dataSrc: __WEBPACK_IMPORTED_MODULE_0__store_js__["a" /* store */].items,
+  startIndex: 0,
+  carouselContent: "carousel1-03_content",
+  prevBtn: "carousel1_03_previous",
+  nextBtn: "carousel1_03_next",
+  pageBtnClass: "carousel1_03_pagebuttons",
+  pageBtnActiveClass: " carousel1_03_pagebuttons--active",
+  pageBtnItemClass: "carousel1_03_pagebuttons",
+  pageBtnHolder: "carousel1-03_pagination"
+});
+C1_03.init();
 
 /***/ }),
 /* 6 */
@@ -464,6 +555,9 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 
+
+// Carousel1_04
+// ======================================================/
 
 var Carousel1_04 = function () {
   function Carousel1_04(opts) {
@@ -487,9 +581,6 @@ var Carousel1_04 = function () {
     this.pageBtn_active = opts.pageBtn_active;
     this.pageBtn_inActive = opts.pageBtn_inActive;
   }
-
-  // prototypes
-
 
   _createClass(Carousel1_04, [{
     key: "init",
@@ -629,137 +720,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
 
-// const carousel1_05 = (function () {
-
-//   // temp item data
-//   let items = [];
-//   let num = 0;
-//   for (let i = 0, l = 32; i < l; i++) {
-//     num += 1;
-//     items.push(num);
-//   }
-
-//   let pager = new Paginate(items);
-
-//   let cIndex = 0;
-//   let currentItem = 0;
-//   let itemContainer = [];
-
-//   let buttonContainer;
-//   let currentButton = 0;
-
-//   function init() {
-//     addEvents();
-//     showPageButtons(1);
-//   }
-
-//   function addEvents() {
-//     document.getElementById("carousel1_05_previous").addEventListener("click", () => {
-//       prevItem();
-//     });
-
-//     document.getElementById("carousel1_05_next").addEventListener("click", () => {
-//       nextItem();
-//     });
-//   }
-
-//   function showPageButtons(itemSetNum) {
-//     document.getElementById("carousel1-05_pagination").innerHTML = "";
-//     let itemSet = pager.page(itemSetNum);
-
-//     // main items
-//     for (let i = 0, l = items.length; i < l; i++) {
-//       let itemHolder = document.createElement("div");
-//       itemHolder.textContent = items[i];
-//       // push for adding className later
-//       itemContainer.push(itemHolder);
-//     }
-
-//     // pagebuttons
-//     buttonContainer = [];
-//     for (let i = 0, l = itemSet.length; i < l; i++) {
-//       let itemSetHolder = document.createElement("span");
-//       itemSetHolder.textContent = itemSet[i];
-//       // push for adding className later
-//       buttonContainer.push(itemSetHolder);
-//     }
-
-//     buttonContainer.forEach(function (i, index) {
-//       i.className = "carousel1-05_pagebuttons";
-//       i.addEventListener("click", function () {
-//         showPage(i.textContent);
-//         setActivePage(index);
-//       });
-//       document.getElementById("carousel1-05_pagination").appendChild(i);
-
-//     });
-
-//     // default
-//     setActiveItems(cIndex);
-//   }
-
-//   function setActivePage(index) {
-//     let activeButton = index;
-
-//     buttonContainer[activeButton].className += " carousel1-05_pagebuttons--active";
-//     if (currentButton !== activeButton) {
-
-//       // if buttons < 10
-//       if (buttonContainer[currentButton] === undefined) {
-//         currentButton = index;
-//         return;
-//       }
-//       // set new currentButton
-//       buttonContainer[currentButton].className = "carousel1-05_pagebuttons";
-//       currentButton = activeButton;
-//     }
-//   }
-
-//   function setActiveItems(index) {
-//     let activeItem = index;
-//     itemContainer[activeItem].className += " carousel1_05_items--active";
-
-//     if (currentItem !== activeItem) {
-//       itemContainer[currentItem].className = "carousel1_05_items";
-
-//       // set new currentItem
-//       currentItem = activeItem;
-//     }
-//     refresh();
-//   }
-
-//   function showPage(num) {
-//     cIndex = num - 1;
-//     setActiveItems(cIndex);
-//   }
-
-//   function prevItem() {
-//     if (pager.currentPage === 1) {
-//       showPageButtons(pager.totalPages);
-//     } else {
-//       showPageButtons(pager.currentPage - 1);
-//     }
-//   }
-
-//   function nextItem() {
-//     if (!pager.hasNext()) {
-//       showPageButtons(1);
-//     } else {
-//       showPageButtons(pager.currentPage + 1);
-//     }
-//   }
-
-//   function refresh() {
-//     document.getElementById("carousel1-05_content").appendChild(itemContainer[cIndex]);
-//   }
-
-//   return {
-//     init: init
-//   };
-// })();
-
-// carousel1_05.init();
-
 // temp item data
 var items = [];
 var num = 0;
@@ -790,9 +750,6 @@ var Carousel1_05 = function () {
     this.currentButton = 0;
   }
 
-  // prototypes
-
-
   _createClass(Carousel1_05, [{
     key: "init",
     value: function init() {
@@ -816,6 +773,8 @@ var Carousel1_05 = function () {
   }, {
     key: "showPageButtons",
     value: function showPageButtons(itemSetNum) {
+      var _this2 = this;
+
       document.getElementById(this.paginator).innerHTML = "";
       var itemSet = this.pager.page(itemSetNum);
       var itemContainer = this.itemContainer;
@@ -840,12 +799,12 @@ var Carousel1_05 = function () {
         buttonContainer.push(itemSetHolder);
       }
 
-      var self = this;
+      // let self = this;
       buttonContainer.forEach(function (i, index) {
         i.className = "carousel1-05_pagebuttons";
         i.addEventListener("click", function () {
-          self.showPage(i.textContent);
-          self.setActivePage(index);
+          _this2.showPage(i.textContent);
+          _this2.setActivePage(index);
         });
         document.getElementById(paginator).appendChild(i);
       });

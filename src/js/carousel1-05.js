@@ -28,7 +28,6 @@ class Carousel1_05 {
     this.currentButton = 0;
   }
 
-  // prototypes
   init() {
     this.pager = new Paginate(items);
     this.addEvents();
@@ -70,12 +69,12 @@ class Carousel1_05 {
       buttonContainer.push(itemSetHolder);
     }
 
-    let self = this;
+    // let self = this;
     buttonContainer.forEach((i, index) => {
       i.className = "carousel1-05_pagebuttons";
-      i.addEventListener("click", function () {
-        self.showPage(i.textContent);
-        self.setActivePage(index);
+      i.addEventListener("click", () => {
+        this.showPage(i.textContent);
+        this.setActivePage(index);
       });
       document.getElementById(paginator).appendChild(i);
     });

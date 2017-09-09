@@ -14,7 +14,6 @@ class Carousel1_01 {
     this.pageBtnHolder = opts.pageBtnHolder;
   }
 
-  // prototypes
   init() {
     this.refresh();
     this.addEvents();
@@ -49,8 +48,7 @@ class Carousel1_01 {
       cIndex = items.length; // go to last
     }
     cIndex = cIndex - 1;
-    // return items[cIndex];
-
+    
     this.cIndex = cIndex;
     this.refresh();
   }
@@ -61,8 +59,7 @@ class Carousel1_01 {
 
     cIndex = cIndex + 1;
     cIndex = cIndex % items.length; // go to first
-    // return items[cIndex];
-
+    
     this.cIndex = cIndex; // main cIndex
     this.refresh();
   }

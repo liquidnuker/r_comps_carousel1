@@ -1,5 +1,7 @@
 import {store} from "./store.js";
 
+// Carousel1_04
+// ======================================================/
 class Carousel1_04 {
   constructor(opts) {
     this.items = opts.dataSrc;
@@ -21,7 +23,6 @@ class Carousel1_04 {
     this.pageBtn_inActive = opts.pageBtn_inActive;
   }
 
-  // prototypes
   init() {
     this.addEvents();
     this.showItems();
