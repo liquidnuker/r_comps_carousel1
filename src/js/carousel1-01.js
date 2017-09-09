@@ -1,23 +1,48 @@
 import {store} from "./store.js";
 
-// 
+// Carousel1_01
 // ======================================================/
-const carousel1_01 = {
-  items: store.items,
-  cIndex: 0,
-  nextItem: function () {
-    let cIndex = this.cIndex; // "this" remover
-    let items = this.items;
+class Carousel1_01 {
+  constructor(opts) {
+    this.items = opts.items;
+    this.cIndex = opts.defaultIndex;
+    this.carouselContent = opts.carouselContent;
 
-    cIndex = cIndex + 1;
-    cIndex = cIndex % items.length; // go to first
-    // return items[cIndex];
+    this.btn_prev = opts.btn_prev;
+    this.btn_next = opts.btn_next;
+    this.pageBtnClass = opts.pageBtnClass;
+    this.pageBtnHolder = opts.pageBtnHolder;
+  }
 
-    this.cIndex = cIndex; // main cIndex
+  // prototypes
+  init() {
     this.refresh();
-  },
-  prevItem: function () {
-    let cIndex = this.cIndex; // "this" remover
+    this.addEvents();
+    this.showPageButtons();
+  }
+
+  addEvents() {
+    document.getElementById(this.btn_prev).addEventListener("click", () => {
+      this.prevItem();
+    });
+
+    document.getElementById(this.btn_next).addEventListener("click", () => {
+      this.nextItem();
+    });
+  }
+
+  showPageButtons() {
+    for (let i = 0; i < this.items.length; i++) {
+      const pageButtons = document.createElement("span");
+      pageButtons.className = this.pageBtnClass;
+      pageButtons.textContent = i;
+      pageButtons.addEventListener("click", () => this.customPage(i));
+      document.getElementById(this.pageBtnHolder).appendChild(pageButtons);
+    } 
+  }
+
+  prevItem() {
+    let cIndex = this.cIndex; 
     let items = this.items;
 
     if (cIndex === 0) {
@@ -28,45 +53,38 @@ const carousel1_01 = {
 
     this.cIndex = cIndex;
     this.refresh();
-  },
-  customPage: function (num) {
+  }
+
+  nextItem() {
+    let cIndex = this.cIndex; 
+    let items = this.items;
+
+    cIndex = cIndex + 1;
+    cIndex = cIndex % items.length; // go to first
+    // return items[cIndex];
+
+    this.cIndex = cIndex; // main cIndex
+    this.refresh();
+  }
+
+  customPage(num) {
     this.cIndex = num;
     this.refresh();
-  },
-  refresh: function () {
-    document.getElementById("carousel1-01_content").innerHTML = this.items[this.cIndex].itemName;
-  },
-  showPageButtons: function () {
-    for (let i = 0; i < this.items.length; i++) {
-      const pageButtons = document.createElement("span");
-      pageButtons.className = "carousel1-01_pagebuttons";
-      pageButtons.textContent = i;
-      pageButtons.addEventListener("click", () => this.customPage(i));
-      document.getElementById("carousel1-01_pagination").appendChild(pageButtons);
-    }
   }
-};
 
-carousel1_01.refresh();
-carousel1_01.showPageButtons();
+  refresh() {
+    document.getElementById(this.carouselContent).innerHTML = this.items[this.cIndex].itemName;
+  }
+}
 
-//
-// ======================================================/
-(function () {
-  const documentReady = () => {
+let C1_01 = new Carousel1_01({
+  items: store.items,
+  defaultIndex: 0,
+  carouselContent: "carousel1-01_content",
+  btn_prev: "carousel1_01_previous",
+  btn_next: "carousel1_01_next",
+  pageBtnClass: "carousel1-01_pagebuttons",
+  pageBtnHolder: "carousel1-01_pagination"
+});
 
-    document.getElementById("carousel1_01_previous").addEventListener("click", () => {
-      carousel1_01.prevItem();
-    });
-
-    document.getElementById("carousel1_01_next").addEventListener("click", () => {
-      carousel1_01.nextItem();
-    });
-
-  };
-  if (document.readyState !== "loading") documentReady();
-  else if (document.addEventListener) document.addEventListener("DOMContentLoaded", documentReady);
-  else document.attachEvent("onreadystatechange", () => {
-    if (document.readyState === "complete") documentReady();
-  });
-})();
+C1_01.init();

@@ -120,83 +120,126 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__store_js__ = __webpack_require__(0);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 
-// 
+
+// Carousel1_01
 // ======================================================/
-var carousel1_01 = {
-  items: __WEBPACK_IMPORTED_MODULE_0__store_js__["a" /* store */].items,
-  cIndex: 0,
-  nextItem: function nextItem() {
-    var cIndex = this.cIndex; // "this" remover
-    var items = this.items;
 
-    cIndex = cIndex + 1;
-    cIndex = cIndex % items.length; // go to first
-    // return items[cIndex];
+var Carousel1_01 = function () {
+  function Carousel1_01(opts) {
+    _classCallCheck(this, Carousel1_01);
 
-    this.cIndex = cIndex; // main cIndex
-    this.refresh();
-  },
-  prevItem: function prevItem() {
-    var cIndex = this.cIndex; // "this" remover
-    var items = this.items;
+    this.items = opts.items;
+    this.cIndex = opts.defaultIndex;
+    this.carouselContent = opts.carouselContent;
 
-    if (cIndex === 0) {
-      cIndex = items.length; // go to last
-    }
-    cIndex = cIndex - 1;
-    // return items[cIndex];
-
-    this.cIndex = cIndex;
-    this.refresh();
-  },
-  customPage: function customPage(num) {
-    this.cIndex = num;
-    this.refresh();
-  },
-  refresh: function refresh() {
-    document.getElementById("carousel1-01_content").innerHTML = this.items[this.cIndex].itemName;
-  },
-  showPageButtons: function showPageButtons() {
-    var _this = this;
-
-    var _loop = function _loop(i) {
-      var pageButtons = document.createElement("span");
-      pageButtons.className = "carousel1-01_pagebuttons";
-      pageButtons.textContent = i;
-      pageButtons.addEventListener("click", function () {
-        return _this.customPage(i);
-      });
-      document.getElementById("carousel1-01_pagination").appendChild(pageButtons);
-    };
-
-    for (var i = 0; i < this.items.length; i++) {
-      _loop(i);
-    }
+    this.btn_prev = opts.btn_prev;
+    this.btn_next = opts.btn_next;
+    this.pageBtnClass = opts.pageBtnClass;
+    this.pageBtnHolder = opts.pageBtnHolder;
   }
-};
 
-carousel1_01.refresh();
-carousel1_01.showPageButtons();
+  // prototypes
 
-//
-// ======================================================/
-(function () {
-  var documentReady = function documentReady() {
 
-    document.getElementById("carousel1_01_previous").addEventListener("click", function () {
-      carousel1_01.prevItem();
-    });
+  _createClass(Carousel1_01, [{
+    key: "init",
+    value: function init() {
+      this.refresh();
+      this.addEvents();
+      this.showPageButtons();
+    }
+  }, {
+    key: "addEvents",
+    value: function addEvents() {
+      var _this = this;
 
-    document.getElementById("carousel1_01_next").addEventListener("click", function () {
-      carousel1_01.nextItem();
-    });
-  };
-  if (document.readyState !== "loading") documentReady();else if (document.addEventListener) document.addEventListener("DOMContentLoaded", documentReady);else document.attachEvent("onreadystatechange", function () {
-    if (document.readyState === "complete") documentReady();
-  });
-})();
+      document.getElementById(this.btn_prev).addEventListener("click", function () {
+        _this.prevItem();
+      });
+
+      document.getElementById(this.btn_next).addEventListener("click", function () {
+        _this.nextItem();
+      });
+    }
+  }, {
+    key: "showPageButtons",
+    value: function showPageButtons() {
+      var _this2 = this;
+
+      var _loop = function _loop(i) {
+        var pageButtons = document.createElement("span");
+        pageButtons.className = _this2.pageBtnClass;
+        pageButtons.textContent = i;
+        pageButtons.addEventListener("click", function () {
+          return _this2.customPage(i);
+        });
+        document.getElementById(_this2.pageBtnHolder).appendChild(pageButtons);
+      };
+
+      for (var i = 0; i < this.items.length; i++) {
+        _loop(i);
+      }
+    }
+  }, {
+    key: "prevItem",
+    value: function prevItem() {
+      var cIndex = this.cIndex;
+      var items = this.items;
+
+      if (cIndex === 0) {
+        cIndex = items.length; // go to last
+      }
+      cIndex = cIndex - 1;
+      // return items[cIndex];
+
+      this.cIndex = cIndex;
+      this.refresh();
+    }
+  }, {
+    key: "nextItem",
+    value: function nextItem() {
+      var cIndex = this.cIndex;
+      var items = this.items;
+
+      cIndex = cIndex + 1;
+      cIndex = cIndex % items.length; // go to first
+      // return items[cIndex];
+
+      this.cIndex = cIndex; // main cIndex
+      this.refresh();
+    }
+  }, {
+    key: "customPage",
+    value: function customPage(num) {
+      this.cIndex = num;
+      this.refresh();
+    }
+  }, {
+    key: "refresh",
+    value: function refresh() {
+      document.getElementById(this.carouselContent).innerHTML = this.items[this.cIndex].itemName;
+    }
+  }]);
+
+  return Carousel1_01;
+}();
+
+var C1_01 = new Carousel1_01({
+  items: __WEBPACK_IMPORTED_MODULE_0__store_js__["a" /* store */].items,
+  defaultIndex: 0,
+  carouselContent: "carousel1-01_content",
+  btn_prev: "carousel1_01_previous",
+  btn_next: "carousel1_01_next",
+  pageBtnClass: "carousel1-01_pagebuttons",
+  pageBtnHolder: "carousel1-01_pagination"
+});
+
+C1_01.init();
 
 /***/ }),
 /* 4 */
@@ -421,109 +464,6 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 
-
-// const carousel1_04 = (function () {
-//   let items = store.items;
-//   let cIndex = 0;
-//   let itemContainer = [];
-
-//   // for pageButtons
-//   let pageButtons = [];
-//   let activePageButton = 0;
-
-//   function init() {
-//     addEvents();
-//     showItems();
-//   }
-
-//   function addEvents() {
-//     document.getElementById("carousel1_04_previous").addEventListener("click", () => {
-//       prevItem();
-//     });
-
-//     document.getElementById("carousel1_04_next").addEventListener("click", () => {
-//       nextItem();
-//     });
-//   }
-
-//   function showItems() {
-//     for (let i = 0; i < items.length; i++) {
-//       // main items
-//       const itemHolder = document.createElement("div");
-//       itemHolder.className = "carousel1_04_items";
-//       itemHolder.innerHTML = `<div>
-//       ${items[i].itemName}
-//       </div>
-//       <div>
-//       ${items[i].description}
-//       </div>`;
-//       itemContainer.push(itemHolder);
-
-//       // page buttons
-//       const pageButtonItems = document.createElement("div");
-//       pageButtonItems.className = "carousel1_04_pagebuttons";
-//       pageButtonItems.addEventListener("click", () => customPage(i));
-//       document.getElementById("carousel1-04_pagination").appendChild(pageButtonItems);
-//       pageButtons.push(pageButtonItems);
-//     }
-
-//     // default
-//     setActiveItems(0);
-//   }
-
-//   function setActiveItems(index) {
-//     let activeItem = index;
-
-//     // main items
-//     itemContainer[activeItem].className += " carousel1_04_items--active";
-
-//     pageButtons[activeItem].className += " carousel1_04_pagebuttons--active";
-//     pageButtons[activeItem].setAttribute("aria-selected", true);
-
-//     if (activePageButton !== activeItem) {
-//       // main items
-//       itemContainer[activePageButton].className = "carousel1_04_items";
-
-//       pageButtons[activePageButton].className = "carousel1_04_pagebuttons";
-//       pageButtons[activePageButton].setAttribute("aria-selected", false);
-
-//       // set current activePageButton
-//       activePageButton = activeItem;
-//     }
-//     refresh();
-//   }
-
-//   function customPage(num) {
-//     cIndex = num;
-//     setActiveItems(num);
-//   }
-
-//   function prevItem() {
-//     if (cIndex === 0) {
-//       cIndex = items.length; // go to last
-//     }
-//     cIndex = cIndex - 1;
-//     setActiveItems(cIndex);
-//     // return items[cIndex];
-//   }
-
-//   function nextItem() {
-//     cIndex = cIndex + 1;
-//     cIndex = cIndex % items.length; // go to first
-//     setActiveItems(cIndex);
-//     // return items[cIndex];
-//   }
-
-//   function refresh() {
-//     document.getElementById("carousel1-04_content").appendChild(itemContainer[cIndex]);
-//   }
-
-//   return {
-//     init: init
-//   };
-// })();
-
-// carousel1_04.init();
 
 var Carousel1_04 = function () {
   function Carousel1_04(opts) {
