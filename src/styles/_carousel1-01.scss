@@ -15,22 +15,30 @@ body {
 
 
   button {
-    @extend %padd--4;
-    background-color: #666;
     border: 1px solid #000; 
     cursor: pointer;
 
+    span {
+      vertical-align: middle;
+    }
+
     svg {
-      display: inline-block;
+      @extend %display--inline-block;
       vertical-align: middle;
       width: 24px;
       height: 24px;
       fill: #fff;
-      background-color: #555;
-    }   
+    }
   }
-
 }
+
+.carousel1_01_previous {
+  padding: 4px 4px 4px 0; /* trbl */
+}
+
+.carousel1_01_next {
+  padding: 4px 0 4px 4px; /* trbl */
+} 
 
 .carousel1-01_content {
   background-color: #ccc;
