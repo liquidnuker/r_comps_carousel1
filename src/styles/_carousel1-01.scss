@@ -291,7 +291,33 @@ body {
 // ==================================================/
 .carousel1-05 {
   height: 100px;
+
+  button {
+    border: 1px solid #000; 
+    cursor: pointer;
+    background-color: #666;
+
+    span {
+      vertical-align: middle;
+    }
+
+    svg {
+      @extend %display--inline-block;
+      vertical-align: middle;
+      width: 24px;
+      height: 24px;
+      fill: #fff;
+    }
+  }
 }
+
+.carousel1_05_previous {
+  padding: 0 4px 0 0; /* trbl */
+}
+
+.carousel1_05_next {
+  padding: 0 0 0 4px; /* trbl */
+} 
 
 .carousel1-05_content {
   
@@ -311,14 +337,7 @@ body {
 
 .carousel1-05_prevnext {
   @extend %text--center;
-}
 
-.carousel1_05_previous,
-.carousel1_05_next {
-  @extend %display--inline-block;
-  @extend %padd--4;
-  background-color: #000;
-  color: #fff;
 }
 
 .carousel1-05_pagination {
