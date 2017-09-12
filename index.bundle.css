@@ -17,7 +17,7 @@
 .carousel1-03_description {
   display: block; }
 
-.btn, .carousel1-01 button svg, .carousel1-01_pagebuttons, .carousel1-02 button svg, .carousel1_02_pagebuttons, .carousel1_03_pagebuttons, .carousel1_04_pagebuttons, .carousel1_04_previous,
+.btn, .carousel1-01 button svg, .carousel1-01_pagebuttons, .carousel1-02 button svg, .carousel1_02_pagebuttons, .carousel1-03 button svg, .carousel1_03_pagebuttons, .carousel1_04_pagebuttons, .carousel1_04_previous,
 .carousel1_04_next, .carousel1_05_previous,
 .carousel1_05_next, .carousel1-05_pagination, .carousel1-05_pagebuttons {
   display: inline-block; }
@@ -884,6 +884,24 @@ input[aria-pressed="true"],
 
 .carousel1-03 {
   height: 100px; }
+  .carousel1-03 button {
+    border: 1px solid #000;
+    cursor: pointer; }
+    .carousel1-03 button span {
+      vertical-align: middle; }
+    .carousel1-03 button svg {
+      vertical-align: middle;
+      width: 24px;
+      height: 24px;
+      fill: #fff; }
+
+.carousel1_03_previous {
+  padding: 4px 4px 4px 0;
+  /* trbl */ }
+
+.carousel1_03_next {
+  padding: 4px 0 4px 4px;
+  /* trbl */ }
 
 .carousel1_03_pagebuttons {
   width: 12px;
