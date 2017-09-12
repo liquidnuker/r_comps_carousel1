@@ -17,7 +17,7 @@
 .carousel1-03_description {
   display: block; }
 
-.carousel1-01_pagebuttons, .carousel1_02_pagebuttons, .carousel1_03_pagebuttons, .carousel1_04_pagebuttons, .carousel1_04_previous,
+.btn, .carousel1-01_pagebuttons, .carousel1_02_pagebuttons, .carousel1_03_pagebuttons, .carousel1_04_pagebuttons, .carousel1_04_previous,
 .carousel1_04_next, .carousel1_05_previous,
 .carousel1_05_next, .carousel1-05_pagination, .carousel1-05_pagebuttons {
   display: inline-block; }
@@ -34,11 +34,14 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+time, mark, audio, video, button,
+input [type="button"],
+[type="reset"],
+[type="submit"], .btn {
   margin: 0;
   padding: 0; }
 
-.carousel1-01_pagebuttons, .carousel1_05_previous,
+.btn1-01, .carousel1-01_pagebuttons, .carousel1_05_previous,
 .carousel1_05_next, .carousel1-05_pagebuttons {
   padding: 4px; }
 
@@ -795,11 +798,33 @@ body {
   .col-lg-1 {
     width: 8.33333333%; } }
 
+button,
+input [type="button"],
+[type="reset"],
+[type="submit"], .btn {
+  font-family: sans-serif; }
+
+button[aria-pressed="true"],
+input[aria-pressed="true"],
+[role="button"][aria-pressed="true"] {
+  background-color: #999;
+  border: 1px solid #000; }
+
+.btn {
+  font-size: 100%;
+  line-height: 1.15; }
+
+.btn1-01 {
+  border: 1px solid #000; }
+
 .item-id {
   background-color: #ccc; }
 
 .carousel1-01 {
   height: 100px; }
+  .carousel1-01 button {
+    background-color: #666;
+    border: 1px solid #000; }
 
 .carousel1-01_content {
   background-color: #ccc; }
@@ -892,9 +917,10 @@ body {
   padding: 10px;
   background-color: #000;
   color: #fff;
-  height: 100%; }
-  .carousel1_04_previous p,
-  .carousel1_04_next p {
+  height: 100%;
+  cursor: pointer; }
+  .carousel1_04_previous svg,
+  .carousel1_04_next svg {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -904,6 +930,11 @@ body {
 
 .carousel1_04_next {
   float: right; }
+
+.carousel1_04_chevron {
+  width: 24px;
+  height: 24px;
+  fill: #fff; }
 
 .carousel1-05 {
   height: 100px; }

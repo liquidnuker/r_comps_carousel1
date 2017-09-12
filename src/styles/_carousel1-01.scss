@@ -10,29 +10,20 @@ body {
 
 // carousel1-01
 // ==================================================/
-@mixin carousel1-01() {
-  height: 100px; 
-}
-
-@mixin carousel1-01_pagebuttons() {
-  background-color: #ccc;
-  color: #000;
-}
-
-@mixin carousel1-01_prevnext() {
-  // background-color: #000;
-}
-
-@mixin carousel1-01_content() {
-  background-color: #ccc;
-}
-
 .carousel1-01 {
-  @include carousel1-01();
+  height: 100px;
+
+  button {
+    background-color: #666;
+    border: 1px solid #000;
+
+    
+  }
+
 }
 
 .carousel1-01_content {
-  @include carousel1_01_content();
+  background-color: #ccc;
 }
 
 .carousel1-01_pagination {
@@ -40,28 +31,23 @@ body {
 }
 
 .carousel1-01_pagebuttons {
+  background-color: #ccc;
+  color: #000;
+
   @extend %display--inline-block;
   @extend %padd--4;
-  @include carousel1-01_pagebuttons();
   margin-right: 4px;
   cursor: pointer;
 }
 
 .carousel1-01_prevnext {
   @extend %text--center; 
-  @include carousel1-01_prevnext();
 }
+
+
 
 // carousel1-02
 // ==================================================/
-@mixin carousel1-02() {
-  height: 100px; 
-}
-
-@mixin carousel1-02_pagination() {
-  // background-color: #000;
-}
-
 @mixin carousel1_02_pagebuttons() {
   $size: 12px;
   width: $size;
@@ -69,16 +55,11 @@ body {
   background-color: #ccc;
 }
 
-@mixin carousel1_02_pagebuttons--active() {
-  background-color: #000;  
-}
-
 .carousel1-02 {
-  @include carousel1-02();
+  height: 100px; 
 }
 
 .carousel1-02_pagination {
-  @include carousel1-02_pagination();
   @extend %text--center;
 }
 
@@ -91,7 +72,7 @@ body {
 }
 
 .carousel1_02_pagebuttons--active {
-  @include carousel1_02_pagebuttons--active();
+  background-color: #000;  
 }
 
 .carousel1-02_prevnext {
@@ -100,10 +81,6 @@ body {
 
 // carousel1-03
 // ==================================================/
-@mixin carousel1-03() {
-  height: 100px; 
-}
-
 @mixin carousel1_03_pagebuttons() {
   $size: 12px;
   width: $size;
@@ -111,16 +88,8 @@ body {
   background-color: #ccc;
 }
 
-@mixin carousel1_03_pagebuttons--active() {
-  background-color: #000;
-}
-
-@mixin carousel1-03_description() {
-  background-color: #ccc;
-}
-
 .carousel1-03 {
-  @include carousel1-03();
+  height: 100px; 
 }
 
 .carousel1-03_pagination {
@@ -136,7 +105,7 @@ body {
 }
 
 .carousel1_03_pagebuttons--active {
-  @include carousel1_03_pagebuttons--active();
+  background-color: #000;
 }
 
 .carousel1-03_content {
@@ -145,7 +114,7 @@ body {
 
 .carousel1-03_description {
   @extend %display--block;
-  @include carousel1-03_description();
+  background-color: #ccc;
 }
 
 .carousel1-03_prevnext {
@@ -154,10 +123,6 @@ body {
 
 // carousel1-04
 // ==================================================/
-@mixin carousel1-04() {
-  height: 100px; 
-}
-
 @mixin carousel1_04_pagebuttons() {
   $size: 12px;
   width: $size;
@@ -165,20 +130,10 @@ body {
   background-color: #ccc;
 }
 
-@mixin carousel1_04_prevnextbuttons() {
-  padding: 10px;
-  background-color: #000;
-  color: #fff;
-}
-
-@mixin carousel1_04_pagebuttons--active() {
-  background-color: #000;
-}
-
 .carousel1-04 {
+  height: 100px; 
+
   @extend %pos--relative;
-  @include carousel1-04();
-  
   &:hover .carousel1-04_prevnext {
     visibility: visible;
   }
@@ -205,7 +160,7 @@ body {
 }
 
 .carousel1_04_pagebuttons--active {
-  @include carousel1_04_pagebuttons--active();
+  background-color: #000;
 }
 
 .carousel1-04_content {
@@ -238,10 +193,13 @@ body {
 .carousel1_04_next {
   @extend %display--inline-block;
   @extend %pos--relative;
-  @include carousel1_04_prevnextbuttons();  
+  padding: 10px;
+  background-color: #000;
+  color: #fff;
   height: 100%;
+  cursor: pointer;
   
-  p {
+  svg {
     @include center-both;
   }
 }
@@ -254,38 +212,21 @@ body {
   float: right;
 }
 
+// svg
+.carousel1_04_chevron {
+  width: 24px;
+  height: 24px;
+  fill: #fff;
+}
+
 // carousel1-05
 // ==================================================/
-@mixin carousel1-05() {
+.carousel1-05 {
   height: 100px;
 }
 
-@mixin carousel1-05_content() {
-  // background-color: #ccc;
-}
-
-@mixin carousel1-05_pagebuttons() {
-  @extend %padd--4;
-  background-color: #ccc;
-}
-
-@mixin carousel1-05_pagebuttons--active() {
-  background-color: #000 !important;
-  color: #fff;
-}
-
-@mixin carousel1-05_prevnextbuttons() {
-  @extend %padd--4;
-  background-color: #000;
-  color: #fff;
-}
-
-.carousel1-05 {
-  @include carousel1-05();
-}
-
 .carousel1-05_content {
-  @include carousel1-05_content();
+  
 }
 
 .carousel1_05_items {
@@ -307,7 +248,9 @@ body {
 .carousel1_05_previous,
 .carousel1_05_next {
   @extend %display--inline-block;
-  @include carousel1-05_prevnextbuttons();
+  @extend %padd--4;
+  background-color: #000;
+  color: #fff;
 }
 
 .carousel1-05_pagination {
@@ -317,10 +260,12 @@ body {
 
 .carousel1-05_pagebuttons {
   @extend %display--inline-block;
-  @include carousel1-05_pagebuttons();
+  @extend %padd--4;
+  background-color: #ccc;
   margin-right: 4px;
 }
 
 .carousel1-05_pagebuttons--active {
-  @include carousel1-05_pagebuttons--active();
+  background-color: #000 !important;
+  color: #fff;
 }
