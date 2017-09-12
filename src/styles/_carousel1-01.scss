@@ -13,11 +13,21 @@ body {
 .carousel1-01 {
   height: 100px;
 
-  button {
-    background-color: #666;
-    border: 1px solid #000;
 
-    
+  button {
+    @extend %padd--4;
+    background-color: #666;
+    border: 1px solid #000; 
+    cursor: pointer;
+
+    svg {
+      display: inline-block;
+      vertical-align: middle;
+      width: 24px;
+      height: 24px;
+      fill: #fff;
+      background-color: #555;
+    }   
   }
 
 }
