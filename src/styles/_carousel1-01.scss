@@ -434,7 +434,6 @@ body {
 .carousel1-04_prevnext {
   @include center-both;
   visibility: hidden;
-  // background-color: #ccc;
   height: 100%;
   width: 100%;
   z-index: 2;
@@ -469,14 +468,58 @@ body {
 
 // carousel1-05
 // ==================================================/
+@mixin carousel1-05_theme() {
+  .carousel1-05 {
+    background-color: #2a2a2d;
+    color: #fff;
+
+    button {
+      background-color: #bab9b9;
+      border: 1px solid #000;
+
+      svg {
+        fill: #fff;
+      }
+
+      &:hover {
+        background-color: #fff;
+      }
+
+      &:hover svg {
+        fill: #be0101;
+      }
+    }
+  }
+
+  .carousel1-05_content {
+    background-color: #1c1d22;
+  }
+
+  .carousel1-05_pagebuttons {
+    color: #fff;
+    background-color: #343437;
+    border: 1px solid #5c5d60;
+
+    &:hover {
+      background-color: #fff;
+      color: #be0101;
+    }
+  }
+
+  .carousel1-05_pagebuttons--active {
+    background-color: #fff !important;
+    color: #be0101;
+  }
+}
+@include carousel1-05_theme();
+
 .carousel1-05 {
   // height: 100px;
 
   button {
-    border: 1px solid #000; 
+    @extend %display--inline-block;
     cursor: pointer;
-    background-color: #666;
-
+    
     span {
       vertical-align: middle;
     }
@@ -486,7 +529,6 @@ body {
       vertical-align: middle;
       width: 24px;
       height: 24px;
-      fill: #fff;
     }
   }
 }
@@ -501,7 +543,6 @@ body {
 
 .carousel1-05_content {
   height: 50px;
-  background-color: #000;
 }
 
 .carousel1_05_items {
@@ -518,7 +559,7 @@ body {
 
 .carousel1-05_prevnext {
   @extend %text--center;
-
+  background-color: #000;
 }
 
 .carousel1-05_pagination {
@@ -529,11 +570,10 @@ body {
 .carousel1-05_pagebuttons {
   @extend %display--inline-block;
   @extend %padd--4;
-  background-color: #ccc;
   margin-right: 4px;
+  cursor: pointer;
 }
 
 .carousel1-05_pagebuttons--active {
-  background-color: #000 !important;
-  color: #fff;
+  
 }

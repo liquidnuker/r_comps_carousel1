@@ -18,7 +18,7 @@
   display: block; }
 
 .btn, .carousel1-01 button svg, .carousel1-01_pagebuttons, .carousel1-02 button svg, .carousel1_02_pagebuttons, .carousel1-03 button svg, .carousel1_03_pagebuttons, .carousel1_04_pagebuttons, .carousel1_04_previous,
-.carousel1_04_next, .carousel1-05 button svg, .carousel1-05_pagination, .carousel1-05_pagebuttons {
+.carousel1_04_next, .carousel1-05 button, .carousel1-05 button svg, .carousel1-05_pagination, .carousel1-05_pagebuttons {
   display: inline-block; }
 
 input, textarea, select, html, body, div, span, applet, object, iframe,
@@ -1091,17 +1091,42 @@ input[aria-pressed="true"],
   width: 24px;
   height: 24px; }
 
+.carousel1-05 {
+  background-color: #2a2a2d;
+  color: #fff; }
+  .carousel1-05 button {
+    background-color: #bab9b9;
+    border: 1px solid #000; }
+    .carousel1-05 button svg {
+      fill: #fff; }
+    .carousel1-05 button:hover {
+      background-color: #fff; }
+    .carousel1-05 button:hover svg {
+      fill: #be0101; }
+
+.carousel1-05_content {
+  background-color: #1c1d22; }
+
+.carousel1-05_pagebuttons {
+  color: #fff;
+  background-color: #343437;
+  border: 1px solid #5c5d60; }
+  .carousel1-05_pagebuttons:hover {
+    background-color: #fff;
+    color: #be0101; }
+
+.carousel1-05_pagebuttons--active {
+  background-color: #fff !important;
+  color: #be0101; }
+
 .carousel1-05 button {
-  border: 1px solid #000;
-  cursor: pointer;
-  background-color: #666; }
+  cursor: pointer; }
   .carousel1-05 button span {
     vertical-align: middle; }
   .carousel1-05 button svg {
     vertical-align: middle;
     width: 24px;
-    height: 24px;
-    fill: #fff; }
+    height: 24px; }
 
 .carousel1_05_previous {
   padding: 0 4px 0 0;
@@ -1112,8 +1137,7 @@ input[aria-pressed="true"],
   /* trbl */ }
 
 .carousel1-05_content {
-  height: 50px;
-  background-color: #000; }
+  height: 50px; }
 
 .carousel1_05_items {
   height: 0;
@@ -1125,13 +1149,12 @@ input[aria-pressed="true"],
   visibility: visible;
   opacity: 1; }
 
-.carousel1-05_pagebuttons {
-  background-color: #ccc;
-  margin-right: 4px; }
+.carousel1-05_prevnext {
+  background-color: #000; }
 
-.carousel1-05_pagebuttons--active {
-  background-color: #000 !important;
-  color: #fff; }
+.carousel1-05_pagebuttons {
+  margin-right: 4px;
+  cursor: pointer; }
 
 body:before {
   background-color: #FCF8E3;
