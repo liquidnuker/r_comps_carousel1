@@ -48,7 +48,7 @@ class Carousel1_04 {
       itemHolder.innerHTML = `<div>
       ${items[i].itemName}
       </div>
-      <div>
+      <div class="carousel1-04_description">
       ${items[i].description}
       </div>`;
       this.itemContainer.push(itemHolder);

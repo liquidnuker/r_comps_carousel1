@@ -612,7 +612,7 @@ var Carousel1_04 = function () {
         // main items
         var itemHolder = document.createElement("div");
         itemHolder.className = _this2.itemHolderClass;
-        itemHolder.innerHTML = "<div>\n      " + items[i].itemName + "\n      </div>\n      <div>\n      " + items[i].description + "\n      </div>";
+        itemHolder.innerHTML = "<div>\n      " + items[i].itemName + "\n      </div>\n      <div class=\"carousel1-04_description\">\n      " + items[i].description + "\n      </div>";
         _this2.itemContainer.push(itemHolder);
 
         // page buttons

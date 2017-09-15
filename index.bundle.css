@@ -993,13 +993,49 @@ input[aria-pressed="true"],
 .carousel1-03_description {
   height: 50px; }
 
+.carousel1-04 {
+  background-color: #2a2a2d;
+  color: #fff; }
+
+.carousel1_04_pagebuttons {
+  color: #fff;
+  background-color: #bab9b9;
+  border: 1px solid #fff; }
+  .carousel1_04_pagebuttons:hover {
+    background-color: #fff; }
+
+.carousel1_04_pagebuttons--active {
+  background-color: #be0101;
+  border: 1px solid #000; }
+
+.carousel1-04_description {
+  border-top: 1px dashed #343437; }
+
+.carousel1-04_content {
+  background-color: #1c1d22; }
+
+.carousel1_04_previous,
+.carousel1_04_next {
+  color: #fff;
+  background-color: #343437;
+  border: 1px solid #5c5d60; }
+  .carousel1_04_previous svg,
+  .carousel1_04_next svg {
+    fill: #fff; }
+  .carousel1_04_previous:hover,
+  .carousel1_04_next:hover {
+    background-color: #fff;
+    border: none; }
+  .carousel1_04_previous:hover svg,
+  .carousel1_04_next:hover svg {
+    fill: #be0101; }
+
 .carousel1-04:hover .carousel1-04_prevnext {
   visibility: visible; }
 
 .carousel1_04_pagebuttons {
   width: 12px;
   height: 12px;
-  background-color: #ccc;
   border-radius: 50%;
   margin-right: 4px;
   cursor: pointer; }
@@ -1014,14 +1050,8 @@ input[aria-pressed="true"],
   visibility: visible;
   opacity: 1; }
 
-.carousel1_04_pagebuttons--active {
-  background-color: #000; }
-
-.carousel1-04_content {
-  height: 100px; }
-
 .carousel1-04_description {
-  background-color: #ccc; }
+  height: 100px; }
 
 .carousel1-04_pagination {
   width: 100%;
@@ -1043,8 +1073,6 @@ input[aria-pressed="true"],
 .carousel1_04_previous,
 .carousel1_04_next {
   padding: 10px;
-  background-color: #000;
-  color: #fff;
   height: 100%;
   cursor: pointer; }
   .carousel1_04_previous svg,
@@ -1061,8 +1089,7 @@ input[aria-pressed="true"],
 
 .carousel1_04_chevron {
   width: 24px;
-  height: 24px;
-  fill: #fff; }
+  height: 24px; }
 
 .carousel1-05 button {
   border: 1px solid #000;
