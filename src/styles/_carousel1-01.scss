@@ -102,11 +102,56 @@ body {
 
 // carousel1-02
 // ==================================================/
-@mixin carousel1_02_pagebuttons() {
+@mixin carousel1-02_theme() {
+  .carousel1-02 {
+    background-color: #2a2a2d;
+    color: #fff;
+
+    button {
+      background-color: #bab9b9;
+      border: 1px solid #000;
+
+      svg {
+        fill: #fff;
+      }
+
+      &:hover {
+        background-color: #fff;
+      }
+
+      &:hover svg {
+        fill: #be0101;
+      }
+    }
+  }
+
+  .carousel1-02_content {
+    background-color: #1c1d22;
+  }
+
+  .carousel1_02_pagebuttons {
+    color: #fff;
+    background-color: #343437;
+    border: 1px solid #fff;
+
+    &:hover {
+      background-color: #fff;
+      color: #be0101;
+    }
+  }
+
+  .carousel1_02_pagebuttons--active {
+    background-color: #be0101;
+    border: 1px solid #000;
+  }
+}
+@include carousel1-02_theme();
+
+
+@mixin carousel1-02_pagebuttons() {
   $size: 12px;
   width: $size;
   height: $size;
-  background-color: #ccc;
 }
 
 .carousel1-02 {
@@ -125,7 +170,6 @@ body {
       vertical-align: middle;
       width: 24px;
       height: 24px;
-      fill: #fff;
     }
   }
 }
@@ -140,6 +184,7 @@ body {
 
 .carousel1-02_pagination {
   @extend %text--center;
+  padding: 6px 0 6px 0; /* trbl */  
 }
 
 .carousel1-02_content {
@@ -148,14 +193,14 @@ body {
 
 .carousel1_02_pagebuttons {
   @extend %display--inline-block; 
-  @include carousel1_02_pagebuttons();   
+  @include carousel1-02_pagebuttons(); 
   border-radius: 50%;
   margin-right: 4px;   
   cursor: pointer; 
 }
 
 .carousel1_02_pagebuttons--active {
-  background-color: #000;  
+  
 }
 
 .carousel1-02_prevnext {
