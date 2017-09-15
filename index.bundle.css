@@ -930,6 +930,37 @@ input[aria-pressed="true"],
   margin-right: 4px;
   cursor: pointer; }
 
+.carousel1-03 {
+  background-color: #2a2a2d;
+  color: #fff; }
+  .carousel1-03 button {
+    background-color: #bab9b9;
+    border: 1px solid #000; }
+    .carousel1-03 button svg {
+      fill: #fff; }
+    .carousel1-03 button:hover {
+      background-color: #fff; }
+    .carousel1-03 button:hover svg {
+      fill: #be0101; }
+
+.carousel1-03_content {
+  background-color: #1c1d22; }
+
+.carousel1_03_pagebuttons {
+  color: #fff;
+  background-color: #343437;
+  border: 1px solid #fff; }
+  .carousel1_03_pagebuttons:hover {
+    background-color: #fff;
+    color: #be0101; }
+
+.carousel1_03_pagebuttons--active {
+  background-color: #be0101;
+  border: 1px solid #000; }
+
+.carousel1-03_description {
+  border-top: 1px dashed #343437; }
+
 .carousel1-03 button {
   border: 1px solid #000;
   cursor: pointer; }
@@ -938,8 +969,7 @@ input[aria-pressed="true"],
   .carousel1-03 button svg {
     vertical-align: middle;
     width: 24px;
-    height: 24px;
-    fill: #fff; }
+    height: 24px; }
 
 .carousel1_03_previous {
   padding: 4px 4px 4px 0;
@@ -949,18 +979,18 @@ input[aria-pressed="true"],
   padding: 4px 0 4px 4px;
   /* trbl */ }
 
+.carousel1-03_pagination {
+  padding: 4px 0 4px 0;
+  /* trbl */ }
+
 .carousel1_03_pagebuttons {
   width: 12px;
   height: 12px;
-  background-color: #ccc;
   border-radius: 50%;
   margin-right: 4px;
   cursor: pointer; }
 
-.carousel1_03_pagebuttons--active {
-  background-color: #000; }
-
-.carousel1-03_content {
+.carousel1-03_description {
   height: 50px; }
 
 .carousel1-04:hover .carousel1-04_prevnext {

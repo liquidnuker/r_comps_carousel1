@@ -209,11 +209,59 @@ body {
 
 // carousel1-03
 // ==================================================/
+@mixin carousel1-03_theme() {
+  .carousel1-03 {
+    background-color: #2a2a2d;
+    color: #fff;
+
+    button {
+      background-color: #bab9b9;
+      border: 1px solid #000;
+
+      svg {
+        fill: #fff;
+      }
+
+      &:hover {
+        background-color: #fff;
+      }
+
+      &:hover svg {
+        fill: #be0101;
+      }
+    }
+  }
+
+  .carousel1-03_content {
+    background-color: #1c1d22;
+  }
+
+  .carousel1_03_pagebuttons {
+    color: #fff;
+    background-color: #343437;
+    border: 1px solid #fff;
+
+    &:hover {
+      background-color: #fff;
+      color: #be0101;
+    }
+  }
+
+  .carousel1_03_pagebuttons--active {
+    background-color: #be0101;
+    border: 1px solid #000;
+  }
+
+  .carousel1-03_description {
+    border-top: 1px dashed #343437;
+  }
+}
+@include carousel1-03_theme();
+
 @mixin carousel1_03_pagebuttons() {
   $size: 12px;
   width: $size;
   height: $size;
-  background-color: #ccc;
 }
 
 .carousel1-03 {
@@ -232,7 +280,6 @@ body {
       vertical-align: middle;
       width: 24px;
       height: 24px;
-      fill: #fff;
     }
   }
 }
@@ -247,6 +294,7 @@ body {
 
 .carousel1-03_pagination {
   @extend %text--center;
+  padding: 4px 0 4px 0; /* trbl */
 }
 
 .carousel1_03_pagebuttons {
@@ -258,15 +306,16 @@ body {
 }
 
 .carousel1_03_pagebuttons--active {
-  background-color: #000;
+  
 }
 
 .carousel1-03_content {
-  height: 50px;
+  
 }
 
 .carousel1-03_description {
   @extend %display--block;
+  height: 50px;
 }
 
 .carousel1-03_prevnext {
