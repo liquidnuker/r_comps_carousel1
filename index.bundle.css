@@ -819,17 +819,37 @@ input[aria-pressed="true"],
   background-color: #ccc; }
 
 .carousel1-01 {
-  height: 100px; }
+  background-color: #2a2a2d;
+  color: #fff; }
   .carousel1-01 button {
-    border: 1px solid #000;
-    cursor: pointer; }
-    .carousel1-01 button span {
-      vertical-align: middle; }
+    background-color: #bab9b9;
+    border: 1px solid #000; }
     .carousel1-01 button svg {
-      vertical-align: middle;
-      width: 24px;
-      height: 24px;
       fill: #fff; }
+    .carousel1-01 button:hover {
+      background-color: #fff; }
+    .carousel1-01 button:hover svg {
+      fill: #be0101; }
+
+.carousel1-01_content {
+  background-color: #1c1d22; }
+
+.carousel1-01_pagebuttons {
+  color: #fff;
+  background-color: #343437;
+  border: 1px solid #5c5d60; }
+  .carousel1-01_pagebuttons:hover {
+    background-color: #fff;
+    color: #be0101; }
+
+.carousel1-01 button {
+  cursor: pointer; }
+  .carousel1-01 button span {
+    vertical-align: middle; }
+  .carousel1-01 button svg {
+    vertical-align: middle;
+    width: 24px;
+    height: 24px; }
 
 .carousel1_01_previous {
   padding: 4px 4px 4px 0;
@@ -840,26 +860,26 @@ input[aria-pressed="true"],
   /* trbl */ }
 
 .carousel1-01_content {
-  background-color: #ccc; }
+  height: 50px; }
+
+.carousel1-01_pagination {
+  padding: 6px 0 6px 0;
+  /* trbl */ }
 
 .carousel1-01_pagebuttons {
-  background-color: #ccc;
-  color: #000;
   margin-right: 4px;
   cursor: pointer; }
 
-.carousel1-02 {
-  height: 100px; }
-  .carousel1-02 button {
-    border: 1px solid #000;
-    cursor: pointer; }
-    .carousel1-02 button span {
-      vertical-align: middle; }
-    .carousel1-02 button svg {
-      vertical-align: middle;
-      width: 24px;
-      height: 24px;
-      fill: #fff; }
+.carousel1-02 button {
+  border: 1px solid #000;
+  cursor: pointer; }
+  .carousel1-02 button span {
+    vertical-align: middle; }
+  .carousel1-02 button svg {
+    vertical-align: middle;
+    width: 24px;
+    height: 24px;
+    fill: #fff; }
 
 .carousel1_02_previous {
   padding: 4px 4px 4px 0;
@@ -868,6 +888,9 @@ input[aria-pressed="true"],
 .carousel1_02_next {
   padding: 4px 0 4px 4px;
   /* trbl */ }
+
+.carousel1-02_content {
+  height: 50px; }
 
 .carousel1_02_pagebuttons {
   width: 12px;
@@ -880,18 +903,16 @@ input[aria-pressed="true"],
 .carousel1_02_pagebuttons--active {
   background-color: #000; }
 
-.carousel1-03 {
-  height: 100px; }
-  .carousel1-03 button {
-    border: 1px solid #000;
-    cursor: pointer; }
-    .carousel1-03 button span {
-      vertical-align: middle; }
-    .carousel1-03 button svg {
-      vertical-align: middle;
-      width: 24px;
-      height: 24px;
-      fill: #fff; }
+.carousel1-03 button {
+  border: 1px solid #000;
+  cursor: pointer; }
+  .carousel1-03 button span {
+    vertical-align: middle; }
+  .carousel1-03 button svg {
+    vertical-align: middle;
+    width: 24px;
+    height: 24px;
+    fill: #fff; }
 
 .carousel1_03_previous {
   padding: 4px 4px 4px 0;
@@ -912,13 +933,11 @@ input[aria-pressed="true"],
 .carousel1_03_pagebuttons--active {
   background-color: #000; }
 
-.carousel1-03_description {
-  background-color: #ccc; }
+.carousel1-03_content {
+  height: 50px; }
 
-.carousel1-04 {
-  height: 100px; }
-  .carousel1-04:hover .carousel1-04_prevnext {
-    visibility: visible; }
+.carousel1-04:hover .carousel1-04_prevnext {
+  visibility: visible; }
 
 .carousel1_04_pagebuttons {
   width: 12px;
@@ -940,6 +959,9 @@ input[aria-pressed="true"],
 
 .carousel1_04_pagebuttons--active {
   background-color: #000; }
+
+.carousel1-04_content {
+  height: 100px; }
 
 .carousel1-04_description {
   background-color: #ccc; }
@@ -985,19 +1007,17 @@ input[aria-pressed="true"],
   height: 24px;
   fill: #fff; }
 
-.carousel1-05 {
-  height: 100px; }
-  .carousel1-05 button {
-    border: 1px solid #000;
-    cursor: pointer;
-    background-color: #666; }
-    .carousel1-05 button span {
-      vertical-align: middle; }
-    .carousel1-05 button svg {
-      vertical-align: middle;
-      width: 24px;
-      height: 24px;
-      fill: #fff; }
+.carousel1-05 button {
+  border: 1px solid #000;
+  cursor: pointer;
+  background-color: #666; }
+  .carousel1-05 button span {
+    vertical-align: middle; }
+  .carousel1-05 button svg {
+    vertical-align: middle;
+    width: 24px;
+    height: 24px;
+    fill: #fff; }
 
 .carousel1_05_previous {
   padding: 0 4px 0 0;
@@ -1006,6 +1026,10 @@ input[aria-pressed="true"],
 .carousel1_05_next {
   padding: 0 0 0 4px;
   /* trbl */ }
+
+.carousel1-05_content {
+  height: 50px;
+  background-color: #000; }
 
 .carousel1_05_items {
   height: 0;

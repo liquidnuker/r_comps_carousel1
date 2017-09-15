@@ -10,12 +10,51 @@ body {
 
 // carousel1-01
 // ==================================================/
+@mixin carousel1-01_theme() {
+  .carousel1-01 {
+    background-color: #2a2a2d;
+    color: #fff;
+
+    button {
+      background-color: #bab9b9;
+      border: 1px solid #000;
+
+      svg {
+        fill: #fff;
+      }
+
+      &:hover {
+        background-color: #fff;
+      }
+
+      &:hover svg {
+        fill: #be0101;
+      }
+    }
+  }
+
+  .carousel1-01_content {
+    background-color: #1c1d22;
+  }
+
+  .carousel1-01_pagebuttons {
+    color: #fff;
+    background-color: #343437;
+    border: 1px solid #5c5d60;
+
+    &:hover {
+      background-color: #fff;
+      color: #be0101;
+    }
+  }
+
+}
+@include carousel1-01_theme();
+
+
 .carousel1-01 {
-  height: 100px;
-
-
+  
   button {
-    border: 1px solid #000; 
     cursor: pointer;
 
     span {
@@ -27,7 +66,6 @@ body {
       vertical-align: middle;
       width: 24px;
       height: 24px;
-      fill: #fff;
     }
   }
 }
@@ -41,17 +79,15 @@ body {
 } 
 
 .carousel1-01_content {
-  background-color: #ccc;
+  height: 50px;
 }
 
 .carousel1-01_pagination {
   @extend %text--center;
+  padding: 6px 0 6px 0; /* trbl */
 }
 
 .carousel1-01_pagebuttons {
-  background-color: #ccc;
-  color: #000;
-
   @extend %display--inline-block;
   @extend %padd--4;
   margin-right: 4px;
@@ -74,7 +110,7 @@ body {
 }
 
 .carousel1-02 {
-  height: 100px; 
+  // height: 100px; 
 
   button {
     border: 1px solid #000; 
@@ -106,6 +142,10 @@ body {
   @extend %text--center;
 }
 
+.carousel1-02_content {
+  height: 50px;
+}
+
 .carousel1_02_pagebuttons {
   @extend %display--inline-block; 
   @include carousel1_02_pagebuttons();   
@@ -132,7 +172,7 @@ body {
 }
 
 .carousel1-03 {
-  height: 100px; 
+  // height: 100px; 
 
   button {
     border: 1px solid #000; 
@@ -177,12 +217,11 @@ body {
 }
 
 .carousel1-03_content {
-
+  height: 50px;
 }
 
 .carousel1-03_description {
   @extend %display--block;
-  background-color: #ccc;
 }
 
 .carousel1-03_prevnext {
@@ -199,7 +238,7 @@ body {
 }
 
 .carousel1-04 {
-  height: 100px; 
+  // height: 100px; 
 
   @extend %pos--relative;
   &:hover .carousel1-04_prevnext {
@@ -232,7 +271,7 @@ body {
 }
 
 .carousel1-04_content {
-  // height: 60px;
+  height: 100px;
 }
 
 .carousel1-04_description {
@@ -290,7 +329,7 @@ body {
 // carousel1-05
 // ==================================================/
 .carousel1-05 {
-  height: 100px;
+  // height: 100px;
 
   button {
     border: 1px solid #000; 
@@ -320,7 +359,8 @@ body {
 } 
 
 .carousel1-05_content {
-  
+  height: 50px;
+  background-color: #000;
 }
 
 .carousel1_05_items {
