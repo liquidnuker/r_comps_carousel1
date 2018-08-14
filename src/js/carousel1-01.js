@@ -1,5 +1,3 @@
-// import {store} from "./store.js";
-
 // Carousel1_01
 // ======================================================/
 export default class Carousel1_01 {
@@ -15,18 +13,22 @@ export default class Carousel1_01 {
   }
 
   init() {
-    this.refresh();
+    this.showItems(this.cIndex);
     this.addEvents();
     this.showPageButtons();
   }
 
+  getId(el) {
+    return document.getElementById(el);
+  }
+
   addEvents() {
-    document.getElementById(this.btn_prev).addEventListener("click", () => {
-      this.prevItem();
+    this.getId(this.btn_prev).addEventListener("click", () => {
+      this.showItems(this.prevItem());
     });
 
-    document.getElementById(this.btn_next).addEventListener("click", () => {
-      this.nextItem();
+    this.getId(this.btn_next).addEventListener("click", () => {
+      this.showItems(this.nextItem());
     });
   }
 
@@ -36,52 +38,30 @@ export default class Carousel1_01 {
       pageButtons.className = this.pageBtnClass;
       pageButtons.textContent = i;
       pageButtons.addEventListener("click", () => this.customPage(i));
-      document.getElementById(this.pageBtnHolder).appendChild(pageButtons);
-    } 
+      this.getId(this.pageBtnHolder).appendChild(pageButtons);
+    }
   }
 
   prevItem() {
-    let cIndex = this.cIndex; 
-    let items = this.items;
-
-    if (cIndex === 0) {
-      cIndex = items.length; // go to last
+    if (this.cIndex === 0) {
+      this.cIndex = this.items.length; // go to last
     }
-    cIndex = cIndex - 1;
-    
-    this.cIndex = cIndex;
-    this.refresh();
+    this.cIndex = this.cIndex - 1;
+    return this.cIndex;
   }
 
   nextItem() {
-    let cIndex = this.cIndex; 
-    let items = this.items;
-
-    cIndex = cIndex + 1;
-    cIndex = cIndex % items.length; // go to first
-    
-    this.cIndex = cIndex; // main cIndex
-    this.refresh();
+    this.cIndex = this.cIndex + 1;
+    this.cIndex = this.cIndex % this.items.length; // go to first
+    return this.cIndex;
   }
 
   customPage(num) {
     this.cIndex = num;
-    this.refresh();
+    this.showItems(this.cIndex);
   }
 
-  refresh() {
-    document.getElementById(this.carouselContent).innerHTML = this.items[this.cIndex].itemName;
+  showItems(index) {
+    this.getId(this.carouselContent).innerHTML = this.items[index].itemName;
   }
 }
-
-// let C1_01 = new Carousel1_01({
-//   items: store.items,
-//   defaultIndex: 0,
-//   carouselContent: "carousel1-01_content",
-//   btn_prev: "carousel1_01_previous",
-//   btn_next: "carousel1_01_next",
-//   pageBtnClass: "carousel1-01_pagebuttons",
-//   pageBtnHolder: "carousel1-01_pagination"
-// });
-
-// C1_01.init();
