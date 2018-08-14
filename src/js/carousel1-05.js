@@ -1,14 +1,14 @@
 import Paginate from "./vendor/Paginate.js";
 
 // temp item data
-let items = [];
+export const items = [];
 let num = 0;
 for (let i = 0, l = 32; i < l; i++) {
   num += 1;
   items.push(num);
 }
 
-class Carousel1_05 {
+export default class Carousel1_05 {
   constructor(opts) {
     this.items = opts.dataSrc;
     this.mainItemHolder = opts.mainItemHolder;
@@ -152,21 +152,28 @@ class Carousel1_05 {
   }
 }
 
-let c5 = new Carousel1_05({
-  dataSrc: items,
-  mainItemHolder: "carousel1-05_content",
-  navPrevious: "carousel1_05_previous",
-  navNext: "carousel1_05_next",
-  paginator: "carousel1-05_pagination",
-  pageBtn_activeClass: " carousel1-05_pagebuttons--active",
-  pageBtn_inActiveClass: "carousel1-05_pagebuttons",
-  item_activeClass: " carousel1_05_items--active",
-  item_inActiveClass: "carousel1_05_items",
-});
+// let c5 = new Carousel1_05({
+//   dataSrc: items,
+//   mainItemHolder: "carousel1-05_content",
+//   navPrevious: "carousel1_05_previous",
+//   navNext: "carousel1_05_next",
+//   paginator: "carousel1-05_pagination",
+//   pageBtn_activeClass: " carousel1-05_pagebuttons--active",
+//   pageBtn_inActiveClass: "carousel1-05_pagebuttons",
+//   item_activeClass: " carousel1_05_items--active",
+//   item_inActiveClass: "carousel1_05_items",
+// });
 
-c5.init();
+// c5.init();
 
-// let c6 = new Carousel1_05({
+// class Carousel6 extends Carousel1_05 {
+//   extraFn() {
+//     // console.log(this.pageBtn_activeClass); // carousel1-06_pagebuttons--active
+//     this.init(); // ok
+//   }
+// }
+
+// let c6 = new Carousel6({
 //   dataSrc: items,
 //   mainItemHolder: "carousel1-06_content",
 //   navPrevious: "carousel1_06_previous",
@@ -177,30 +184,5 @@ c5.init();
 //   item_activeClass: " carousel1_06_items--active",
 //   item_inActiveClass: "carousel1_06_items",
 // });
-
-// c6.init = function() {
-//   console.log(this.pageBtn_activeClass); // carousel1-06_pagebuttons--active
-// };
-
-// c6.init();
-
-class Carousel6 extends Carousel1_05 {
-  extraFn() {
-    // console.log(this.pageBtn_activeClass); // carousel1-06_pagebuttons--active
-    this.init(); // ok
-  }
-}
-
-let c6 = new Carousel6({
-  dataSrc: items,
-  mainItemHolder: "carousel1-06_content",
-  navPrevious: "carousel1_06_previous",
-  navNext: "carousel1_06_next",
-  paginator: "carousel1-06_pagination",
-  pageBtn_activeClass: " carousel1-06_pagebuttons--active",
-  pageBtn_inActiveClass: "carousel1-06_pagebuttons",
-  item_activeClass: " carousel1_06_items--active",
-  item_inActiveClass: "carousel1_06_items",
-});
 
 // c6.extraFn();

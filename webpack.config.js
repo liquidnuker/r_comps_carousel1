@@ -64,7 +64,9 @@ module.exports = {
         // path.join(__dirname, 'src/components/*.jsx')
       ]),
       purifyOptions: {
-        whitelist: [ '*:not*' ]
+        whitelist: [ '*:not*', 
+        // vanillajs carousels
+        '*carousel*' ]
       },
       minimize: true
     }),

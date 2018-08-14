@@ -1,8 +1,8 @@
-import {store} from "./store.js";
+// import {store} from "./store.js";
 
 // Carousel1_01
 // ======================================================/
-class Carousel1_01 {
+export default class Carousel1_01 {
   constructor(opts) {
     this.items = opts.items;
     this.cIndex = opts.defaultIndex;
@@ -74,14 +74,14 @@ class Carousel1_01 {
   }
 }
 
-let C1_01 = new Carousel1_01({
-  items: store.items,
-  defaultIndex: 0,
-  carouselContent: "carousel1-01_content",
-  btn_prev: "carousel1_01_previous",
-  btn_next: "carousel1_01_next",
-  pageBtnClass: "carousel1-01_pagebuttons",
-  pageBtnHolder: "carousel1-01_pagination"
-});
+// let C1_01 = new Carousel1_01({
+//   items: store.items,
+//   defaultIndex: 0,
+//   carouselContent: "carousel1-01_content",
+//   btn_prev: "carousel1_01_previous",
+//   btn_next: "carousel1_01_next",
+//   pageBtnClass: "carousel1-01_pagebuttons",
+//   pageBtnHolder: "carousel1-01_pagination"
+// });
 
-C1_01.init();
+// C1_01.init();
