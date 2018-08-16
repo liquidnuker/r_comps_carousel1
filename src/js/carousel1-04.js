@@ -24,13 +24,17 @@ export default class Carousel1_04 {
     this.showItems();
   }
 
+  getId(el) {
+    return document.getElementById(el);
+  }
+
   addEvents() {
-    document.getElementById(this.navPrevious).addEventListener("click", () => {
-      this.prevItem();
+    this.getId(this.navPrevious).addEventListener("click", () => {
+      this.setActiveItems(this.prevItem());
     });
 
-    document.getElementById(this.navNext).addEventListener("click", () => {
-      this.nextItem();
+    this.getId(this.navNext).addEventListener("click", () => {
+      this.setActiveItems(this.nextItem());
     });
   }
 
@@ -53,7 +57,7 @@ export default class Carousel1_04 {
       const pageButtonItems = document.createElement("div");
       pageButtonItems.className = this.pageBtnClass;
       pageButtonItems.addEventListener("click", () => this.customPage(i));
-      document.getElementById("carousel1-04_pagination").appendChild(pageButtonItems);
+      this.getId("carousel1-04_pagination").appendChild(pageButtonItems);
       this.pageButtons.push(pageButtonItems);
     }
 
@@ -62,24 +66,19 @@ export default class Carousel1_04 {
   }
 
   setActiveItems(index) {
-    let activeItem = index;
-    let itemContainer = this.itemContainer;
-    let pageButtons = this.pageButtons;
-    let activePageButton = this.activePageButton;
+    this.itemContainer[index].className += this.item_active;
 
-    itemContainer[activeItem].className += this.item_active;
+    this.pageButtons[index].className += this.pageBtn_active;
+    this.pageButtons[index].setAttribute("aria-selected", true);
 
-    pageButtons[activeItem].className += this.pageBtn_active;
-    pageButtons[activeItem].setAttribute("aria-selected", true);
+    if (this.activePageButton !== index) {
+      this.itemContainer[this.activePageButton].className = this.item_inActive;
 
-    if (activePageButton !== activeItem) {
-      itemContainer[activePageButton].className = this.item_inActive;
-
-      pageButtons[activePageButton].className = this.pageBtn_inActive;
-      pageButtons[activePageButton].setAttribute("aria-selected", false);
+      this.pageButtons[this.activePageButton].className = this.pageBtn_inActive;
+      this.pageButtons[this.activePageButton].setAttribute("aria-selected", false);
 
       // set current activePageButton
-      this.activePageButton = activeItem;
+      this.activePageButton = index;
     }
     this.refresh();
   }
@@ -89,13 +88,13 @@ export default class Carousel1_04 {
       this.cIndex = this.items.length; // go to last
     }
     this.cIndex = this.cIndex - 1;
-    this.setActiveItems(this.cIndex);
+    return this.cIndex;
   }
 
   nextItem() {
     this.cIndex = this.cIndex + 1;
     this.cIndex = this.cIndex % this.items.length; // go to first
-    this.setActiveItems(this.cIndex);
+    return this.cIndex;
   }
 
   customPage(num) {
@@ -104,21 +103,6 @@ export default class Carousel1_04 {
   }
 
   refresh() {
-    document.getElementById(this.mainItemContainer).appendChild(this.itemContainer[this.cIndex]);
+    this.getId(this.mainItemContainer).appendChild(this.itemContainer[this.cIndex]);
   }
 }
-
-// let C4 = new Carousel1_04({
-//   dataSrc: store.items,
-//   mainItemContainer: "carousel1-04_content",
-//   navPrevious: "carousel1_04_previous",
-//   navNext: "carousel1_04_next",
-//   itemHolderClass: "carousel1_04_items",
-//   item_active: " carousel1_04_items--active",
-//   item_inActive: "carousel1_04_items",
-//   pageBtnClass: "carousel1_04_pagebuttons",
-//   pageBtn_active: " carousel1_04_pagebuttons--active",
-//   pageBtn_inActive: "carousel1_04_pagebuttons"
-// });
-
-// C4.init();
