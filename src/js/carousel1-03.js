@@ -22,36 +22,32 @@ export default class Carousel1_03 {
     this.showItems();
   }
 
+  getId(el) {
+    return document.getElementById(el);
+  }
+
   addEvents() {
-    document.getElementById(this.prevBtn).addEventListener("click", () => {
-      this.prevItem();
+    this.getId(this.prevBtn).addEventListener("click", () => {
+      this.setActivePageButton(this.prevItem());
     });
 
-    document.getElementById(this.nextBtn).addEventListener("click", () => {
-      this.nextItem();
+    this.getId(this.nextBtn).addEventListener("click", () => {
+      this.setActivePageButton(this.nextItem());
     });
   }
 
   prevItem() {
-    let cIndex = this.cIndex;
-    let items = this.items;
-
-    if (cIndex === 0) {
-      cIndex = items.length; // go to last
+    if (this.cIndex === 0) {
+      this.cIndex = this.items.length; // go to last
     }
-    this.cIndex = cIndex - 1;
-    this.setActivePageButton(this.cIndex);
+    this.cIndex = this.cIndex - 1;
+    return this.cIndex;
   }
 
   nextItem() {
-    let cIndex = this.cIndex;
-    let items = this.items;
-
-    cIndex = cIndex + 1;
-    cIndex = cIndex % items.length; // go to first
-
-    this.cIndex = cIndex;
-    this.setActivePageButton(this.cIndex);
+    this.cIndex = this.cIndex + 1;
+    this.cIndex = this.cIndex % this.items.length; // go to first
+    return this.cIndex;
   }
 
   customPage(num) {
@@ -60,24 +56,20 @@ export default class Carousel1_03 {
   }
 
   showItems() {
-    let items = this.items;
-    let itemContainer = this.itemContainer;
-    let pageButtons = this.pageButtons;
-
-    for (let i = 0; i < items.length; i++) {
-      const cItems = `<div>
-        ${items[i].itemName} <br>
-        <span class="carousel1-03_description">${items[i].description}</span>
+    for (let i = 0; i < this.items.length; i++) {
+      let cItems = `<div>
+        ${this.items[i].itemName} <br>
+        <span class="carousel1-03_description">${this.items[i].description}</span>
         </div>`;
 
-      itemContainer.push(cItems);
+      this.itemContainer.push(cItems);
 
       // page buttons
-      const pageButtonItems = document.createElement("div");
+      let pageButtonItems = document.createElement("div");
       pageButtonItems.className = this.pageBtnItemClass;
       pageButtonItems.addEventListener("click", () => this.customPage(i));
-      document.getElementById(this.pageBtnHolder).appendChild(pageButtonItems);
-      pageButtons.push(pageButtonItems);
+      this.getId(this.pageBtnHolder).appendChild(pageButtonItems);
+      this.pageButtons.push(pageButtonItems);
     }
 
     // default
@@ -85,37 +77,20 @@ export default class Carousel1_03 {
   }
 
   setActivePageButton(index) {
-    let activeItem = index;
-    let pageButtons = this.pageButtons;
-    let activePageButton = this.activePageButton;
+    this.pageButtons[index].className += this.pageBtnActiveClass;
+    this.pageButtons[index].setAttribute("aria-selected", true);
 
-    pageButtons[activeItem].className += this.pageBtnActiveClass;
-    pageButtons[activeItem].setAttribute("aria-selected", true);
-
-    if (activePageButton !== activeItem) {
-      pageButtons[activePageButton].className = this.pageBtnClass;
-      pageButtons[activePageButton].setAttribute("aria-selected", false);
+    if (this.activePageButton !== index) {
+      this.pageButtons[this.activePageButton].className = this.pageBtnClass;
+      this.pageButtons[this.activePageButton].setAttribute("aria-selected", false);
 
       // set current activePageButton
-      this.activePageButton = activeItem;
+      this.activePageButton = index;
     }
     this.refresh();
   }
 
   refresh() {
-    document.getElementById(this.carouselContent).innerHTML = this.itemContainer[this.cIndex];
+    this.getId(this.carouselContent).innerHTML = this.itemContainer[this.cIndex];
   }
 }
-
-// let C1_03 = new Carousel1_03({
-//   dataSrc: store.items,
-//   startIndex: 0,
-//   carouselContent: "carousel1-03_content",
-//   prevBtn: "carousel1_03_previous",
-//   nextBtn: "carousel1_03_next",
-//   pageBtnClass: "carousel1_03_pagebuttons",
-//   pageBtnActiveClass: " carousel1_03_pagebuttons--active",
-//   pageBtnItemClass: "carousel1_03_pagebuttons",
-//   pageBtnHolder: "carousel1-03_pagination"
-// });
-// C1_03.init();
