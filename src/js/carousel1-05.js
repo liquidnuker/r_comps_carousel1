@@ -4,8 +4,8 @@ import Paginate from "./vendor/Paginate.js";
 export const items = [];
 let num = 0;
 for (let i = 0, l = 32; i < l; i++) {
-  num += 1;
-  items.push(num);
+  // num += 1;
+  items.push(num += 1);
 }
 
 export default class Carousel1_05 {
@@ -34,88 +34,77 @@ export default class Carousel1_05 {
     this.showPageButtons(1);
   }
 
+  getId(el) {
+    return document.getElementById(el);
+  }
+
   addEvents() {
-    document.getElementById(this.navPrevious).addEventListener("click", () => {
-      this.prevItem();
+    this.getId(this.navPrevious).addEventListener("click", () => {
+      this.showPageButtons(this.prevItem());
     });
 
-    document.getElementById(this.navNext).addEventListener("click", () => {
-      this.nextItem();
+    this.getId(this.navNext).addEventListener("click", () => {
+      this.showPageButtons(this.nextItem());
     });
   }
 
-  showPageButtons(itemSetNum) {
-    document.getElementById(this.paginator).innerHTML = "";
-    let itemSet = this.pager.page(itemSetNum);
-    let itemContainer = this.itemContainer;
-    let buttonContainer = this.buttonContainer;
-    let paginator = this.paginator;
-    let cIndex = this.cIndex;
-
+  showPageButtons(num) {
+    this.getId(this.paginator).innerHTML = "";
+    let itemSet = this.pager.page(num);
+        
     // main items
     for (let i = 0, l = items.length; i < l; i++) {
       let itemHolder = document.createElement("div");
       itemHolder.textContent = items[i];
       // push for adding className later
-      itemContainer.push(itemHolder);
+      this.itemContainer.push(itemHolder);
     }
 
     // pagebuttons
-    buttonContainer = [];
+    this.buttonContainer = [];
     for (let i = 0, l = itemSet.length; i < l; i++) {
       let itemSetHolder = document.createElement("span");
       itemSetHolder.textContent = itemSet[i];
       // push for adding className later
-      buttonContainer.push(itemSetHolder);
+      this.buttonContainer.push(itemSetHolder);
     }
 
-    // let self = this;
-    buttonContainer.forEach((i, index) => {
+    this.buttonContainer.forEach((i, index) => {
       i.className = "carousel1-05_pagebuttons";
       i.addEventListener("click", () => {
         this.showPage(i.textContent);
         this.setActivePage(index);
       });
-      document.getElementById(paginator).appendChild(i);
+      this.getId(this.paginator).appendChild(i);
     });
 
-    this.buttonContainer = buttonContainer;
-
     // default
-    this.setActiveItems(cIndex);
+    this.setActiveItems(this.cIndex);
   }
 
   setActivePage(index) {
-    let activeButton = index;
-    let buttonContainer = this.buttonContainer;
-    let currentButton = this.currentButton;
-
-    buttonContainer[activeButton].className += this.pageBtn_activeClass;
-    if (currentButton !== activeButton) {
+    this.buttonContainer[index].className += this.pageBtn_activeClass;
+    if (this.currentButton !== index) {
 
       // if buttons < 10
-      if (buttonContainer[currentButton] === undefined) {
+      if (this.buttonContainer[this.currentButton] === undefined) {
         this.currentButton = index;
         return;
       }
       // set new currentButton
-      buttonContainer[currentButton].className = this.pageBtn_inActiveClass;
-      this.currentButton = activeButton;
+      this.buttonContainer[this.currentButton].className = this.pageBtn_inActiveClass;
+      this.currentButton = index;
     }
   }
 
   setActiveItems(index) {
-    let activeItem = index;
-    let itemContainer = this.itemContainer;
-    let currentItem = this.currentItem;
+    this.itemContainer[index].className += this.item_activeClass;
 
-    itemContainer[activeItem].className += this.item_activeClass;
-
-    if (currentItem !== activeItem) {
-      itemContainer[currentItem].className = this.item_inActiveClass;
+    if (this.currentItem !== index) {
+      this.itemContainer[this.currentItem].className = this.item_inActiveClass;
 
       // set new currentItem
-      this.currentItem = activeItem;
+      this.currentItem = index;
     }
     this.refresh();
   }
@@ -126,63 +115,22 @@ export default class Carousel1_05 {
   }
 
   prevItem() {
-    let pager = this.pager;
-
-    if (pager.currentPage === 1) {
-      this.showPageButtons(pager.totalPages);
+    if (this.pager.currentPage === 1) {
+      return this.pager.totalPages;
     } else {
-      this.showPageButtons(pager.currentPage - 1);
+      return this.pager.currentPage - 1;
     }
   }
 
   nextItem() {
-    let pager = this.pager;
-
-    if (!pager.hasNext()) {
-      this.showPageButtons(1);
+    if (!this.pager.hasNext()) {
+      return 1;
     } else {
-      this.showPageButtons(pager.currentPage + 1);
+      return this.pager.currentPage + 1;
     }
   }
 
   refresh() {
-    let itemContainer = this.itemContainer;
-    let cIndex = this.cIndex;
-    document.getElementById(this.mainItemHolder).appendChild(itemContainer[cIndex]);
+    this.getId(this.mainItemHolder).appendChild(this.itemContainer[this.cIndex]);
   }
 }
-
-// let c5 = new Carousel1_05({
-//   dataSrc: items,
-//   mainItemHolder: "carousel1-05_content",
-//   navPrevious: "carousel1_05_previous",
-//   navNext: "carousel1_05_next",
-//   paginator: "carousel1-05_pagination",
-//   pageBtn_activeClass: " carousel1-05_pagebuttons--active",
-//   pageBtn_inActiveClass: "carousel1-05_pagebuttons",
-//   item_activeClass: " carousel1_05_items--active",
-//   item_inActiveClass: "carousel1_05_items",
-// });
-
-// c5.init();
-
-// class Carousel6 extends Carousel1_05 {
-//   extraFn() {
-//     // console.log(this.pageBtn_activeClass); // carousel1-06_pagebuttons--active
-//     this.init(); // ok
-//   }
-// }
-
-// let c6 = new Carousel6({
-//   dataSrc: items,
-//   mainItemHolder: "carousel1-06_content",
-//   navPrevious: "carousel1_06_previous",
-//   navNext: "carousel1_06_next",
-//   paginator: "carousel1-06_pagination",
-//   pageBtn_activeClass: " carousel1-06_pagebuttons--active",
-//   pageBtn_inActiveClass: "carousel1-06_pagebuttons",
-//   item_activeClass: " carousel1_06_items--active",
-//   item_inActiveClass: "carousel1_06_items",
-// });
-
-// c6.extraFn();
