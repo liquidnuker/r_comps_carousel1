@@ -1,0 +1,35 @@
+// !important is used for adding paddings in col-*s
+// ==================================================/
+%padd-col--4 {
+  padding: 4px !important;
+}
+
+%padd-col--6 {
+  padding: 6px !important;
+}
+
+%padd-col--8 {
+  padding: 8px !important;
+}
+
+%padd-col--10 {
+  padding: 10px !important;
+}
+
+// 
+// ==================================================/
+// mobile portrait (320x480) 
+@include mq($from: mobile) {
+  .container-fluid-custom {
+    padding: 0px 2% 0 2%; /* trbl */
+    background-color: green;
+  }
+}
+
+// *tablet landscape (1024x768)
+@include mq($from: wide) {
+  .container-fluid-custom {
+    padding: 0px 6% 0 6%; /* trbl */
+    background-color: #ccc;
+  }
+}

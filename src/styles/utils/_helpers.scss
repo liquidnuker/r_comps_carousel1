@@ -1,10 +1,3 @@
-@mixin border-radius($var) {
-  -webkit-border-radius: $var + px;
-  -moz-border-radius: $var + px;
-  -ms-border-radius: $var + px;
-  border-radius: $var + px;
-}
-
 // 
 // ==================================================/
 %pos--absolute {
@@ -37,15 +30,13 @@
   display: none;
 }
 
-%visible {
+%vis--visible {
   visibility: visible;
 }
 
-%hidden {
+%vis--hidden {
   visibility: hidden;
 }
-
-
 
 // 
 // ==================================================/
@@ -62,11 +53,19 @@
   margin: 6px;
 }
 
-%margin_top--4 {
+%margin--8 {
+  margin: 8px;
+}
+
+%margin--10 {
+  margin: 10px;
+}
+
+%margin-top--4 {
   margin-top: 4px;
 }
 
-%margin_bottom--4 {
+%margin-bottom--4 {
   margin-bottom: 4px;
 }
 
@@ -75,6 +74,8 @@
   margin-right: auto;
 }
 
+// 
+// ==================================================/
 %padd--4 {
   padding: 4px;
 }
@@ -83,12 +84,12 @@
   padding: 6px;
 }
 
-%padd_top--4 {
-  padding-top: 4px;
+%padd--8 {
+  padding: 8px;
 }
 
-%padd_bottom--4 {
-  padding-bottom: 4px;
+%padd--10 {
+  padding: 10px;
 }
 
 // 
@@ -111,8 +112,22 @@
 
 // 
 // ==================================================/
+%width--100p {
+  width: 100%;
+}
+
+%height--100p {
+  height: 100%;
+}
+
+// 
+// ==================================================/
 %br--4 {
   border-radius: 4px;
+}
+
+%br--6 {
+  border-radius: 6px;
 }
 
 %img--responsive {

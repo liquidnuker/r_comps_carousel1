@@ -7,13 +7,6 @@
 /// or heavy framework use. Feel free to fork it on Github and add your own mixins:
 ////
 
-
-/// Base font size setting for Andy
-/// @access public
-/// @type Length
-$base-font-size: 16px !default;
-
-
 /// Mixin helper to output vendor-prefixed CSS
 /// @access private
 /// @author HugoGiraudel
@@ -305,29 +298,6 @@ $base-font-size: 16px !default;
   }
 }
 
-
-/// Given a font size in pixels, reproduces that font size in rems.
-/// @access public
-/// @param {Length} $size - Font size
-/// @example scss - Usage
-///   .foo {
-///     @include font-size(16px);
-///   }
-/// @example css - Result
-///   .foo {
-///     font-size: 16px;
-///     font-size: 1rem;
-///   }
-@mixin font-size($size) {
-  @if unitless($size) {
-    $size: $size * 1px;
-  }
-
-  font-size: $size;
-  font-size: ($size / $base-font-size) * 1rem;
-}
-
-
 /// Forces browsers to use hardware acceleration for transforms
 /// @access public
 /// @example scss - Usage
@@ -362,24 +332,6 @@ $base-font-size: 16px !default;
         background-image: url($image);
         background-size: $width $height;
     }
-}
-
-
-/// Generates line-height values in both pixels and rems.
-/// @access public
-/// @param {Number} $height-value [12] - Height value
-/// @example scss - Usage
-///   .foo {
-///     @include line-height(16);
-///   }
-/// @example css - Result
-///   .foo {
-///     line-height: 16px;
-///     line-height: 1rem;
-///   }
-@mixin line-height($height-value: 12) {
-    line-height: $height-value * 1px; //fallback for old browsers
-    line-height: (1 / ($base-font-size / ($base-font-size * 0 + 1)) * $height-value * 1rem);
 }
 
 

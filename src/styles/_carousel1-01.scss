@@ -382,8 +382,6 @@ body {
 }
 
 .carousel1-04 {
-  // height: 100px; 
-
   @extend %pos--relative;
   &:hover .carousel1-04_prevnext {
     visibility: visible;
@@ -432,8 +430,9 @@ body {
 }
 
 .carousel1-04_prevnext {
-  @include center-both;
+  @extend %pos--absolute;
   visibility: hidden;
+  top: 0;
   height: 100%;
   width: 100%;
   z-index: 2;
@@ -442,7 +441,7 @@ body {
 .carousel1_04_previous,
 .carousel1_04_next {
   @extend %display--inline-block;
-  @extend %pos--relative;
+  @extend %pos--absolute;
   padding: 10px;
   height: 100%;
   cursor: pointer;
@@ -457,7 +456,7 @@ body {
 }
 
 .carousel1_04_next {
-  float: right;
+  right: 0;
 }
 
 // svg

@@ -69,3 +69,18 @@
 %system_normal--400 {
   font-family: "system_normal--400";
 }
+
+// em/rem font-size helper
+// ==================================================/
+// usage
+// font-size: em(32);
+
+$font-size-default: 16; 
+
+@function em($pixels, $size: $font-size-default) {
+  @return #{$pixels/$size}em;
+}
+
+@function rem($pixels, $size: $font-size-default) {
+  @return #{$pixels/$size}rem;
+}
